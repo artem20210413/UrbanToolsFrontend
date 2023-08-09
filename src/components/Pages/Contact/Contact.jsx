@@ -10,8 +10,6 @@ export default function Contact() {
             <Header/>
             <div className={'content'}>
                 <h1>Contact</h1>
-                <h1>Contact</h1>
-                <h1>Contact</h1>
             </div>
             <Footer/>
         </div>

@@ -1,6 +1,4 @@
 .item {
-    margin: 0 200px;
-    transition: margin var(--transition-ease) ease;
     /*height: calc(100vh - (var(--footer-size) + var(--header-size)));*/
 }
 

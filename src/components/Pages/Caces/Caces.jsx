@@ -10,10 +10,6 @@ function Main() {
             <Header/>
             <div className={'content'}>
                 <h1>CASES</h1>
-                <h1>CASES</h1>
-                <h1>CASES</h1>
-                <h1>CASES</h1>
-                <h1>CASES</h1>
             </div>
             <Footer/>
         </div>

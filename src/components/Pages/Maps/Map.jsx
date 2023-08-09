@@ -8,9 +8,6 @@ export default function Map() {
             <Header/>
             <div className={'content'}>
                 <h1>MAP</h1>
-                <h1>MAP</h1>
-                <h1>MAP</h1>
-                <h1>MAP</h1>
             </div>
             <Footer/>
         </div>
