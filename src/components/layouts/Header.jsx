@@ -5,6 +5,7 @@ import Search from "../UI/Input/Searh";
 import BurgerMenu from "./BurgerMenu";
 import SvgLogo_257_49 from "../svg/logo/SvgLogo_257_49";
 import SvgLogo_144_49 from "../svg/logo/SvgLogo_144_49";
+import CustomNav from "../UI/Nav/CustomNav";
 
 function Header() {
 
@@ -23,22 +24,7 @@ function Header() {
                     <Search/>
                 </div>
                 <div className={styles.nav}>
-                    <nav className={`font-menu-b`}>
-                        <ul>
-                            <li>
-                                <a href="#">INFO</a>
-                            </li>
-                            <li>
-                                <a href="#">CASES</a>
-                            </li>
-                            <li>
-                                <a href="#">MAP</a>
-                            </li>
-                            <li>
-                                <a href="#">CONTACT</a>
-                            </li>
-                        </ul>
-                    </nav>
+                    <CustomNav/>
                 </div>
                 {/*<div className={styles.nav}>*/}
                 {/*    <nav className={`font-menu-b`}>*/}

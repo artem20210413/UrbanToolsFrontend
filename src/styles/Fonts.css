@@ -79,7 +79,7 @@
     font-size: 20px;
     font-weight: 400;
     line-height: 24px;
-    letter-spacing: 0em;
+    letter-spacing: 0;
     text-align: left;
 
 }
@@ -88,7 +88,7 @@
     font-size: 16px;
     font-weight: 400;
     line-height: 16px;
-    letter-spacing: 0em;
+    letter-spacing: 0;
     text-align: left;
 }
 
@@ -96,7 +96,7 @@
     font-size: 24px;
     font-weight: 300;
     line-height: 24px;
-    letter-spacing: 0em;
+    letter-spacing: 0;
     text-align: left;
 }
 
@@ -105,7 +105,7 @@
     font-size: 16px;
     font-weight: 400;
     line-height: 16px;
-    letter-spacing: 0em;
+    letter-spacing: 0;
     text-align: left;
 }
 
@@ -130,7 +130,7 @@
     font-size: 32px;
     font-weight: 950;
     line-height: 48px;
-    letter-spacing: 0em;
+    letter-spacing: 0;
     text-align: left;
     text-decoration: underline;
 }
@@ -148,7 +148,7 @@
     font-size: 20px;
     font-weight: 700;
     line-height: 24px;
-    letter-spacing: 0em;
+    letter-spacing: 0;
     text-align: left;
 }
 
@@ -156,7 +156,7 @@
     font-size: 16px;
     font-weight: 700;
     line-height: 16px;
-    letter-spacing: 0em;
+    letter-spacing: 0;
     text-align: left;
 }
 
@@ -164,7 +164,7 @@
     font-size: 24px;
     font-weight: 900;
     line-height: 24px;
-    letter-spacing: 0em;
+    letter-spacing: 0;
     text-align: left;
 }
 
@@ -172,7 +172,7 @@
     font-size: 16px;
     font-weight: 900;
     line-height: 16px;
-    letter-spacing: 0em;
+    letter-spacing: 0;
     text-align: left;
 }
 

@@ -1,7 +1,4 @@
-// import React, {useState} from "react";
-import Header from "./components/layouts/Header";
-import Footer from "./components/layouts/Footer";
-import Content from "./components/Content";
+import Home from "./components/Pages/Home/Home";
 
 /** CSS */
 import './styles/App.css';
@@ -11,11 +8,7 @@ import './styles/App.css';
 function App() {
     return (
         <div className="App">
-            <Header/>
-            <Content/>
-            <Footer/>
-            {/*<Counter/>*/}
-            {/*<Render/>*/}
+            <Home/>
         </div>
     );
 }
