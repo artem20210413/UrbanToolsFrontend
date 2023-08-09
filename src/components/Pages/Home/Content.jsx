@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import styles from './Content.module.css'
-import Main from "./Pages/Main/Main";
+import Main from "./Main";
 
 function Content() {
 

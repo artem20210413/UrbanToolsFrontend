@@ -5,7 +5,7 @@ import SvgClose from "../svg/auxiliary/SvgClose";
 import CustomNav from "../UI/Nav/CustomNav";
 
 function BurgerMenu() {
-    const [isExpanded, setExpanded] = useState(true);
+    const [isExpanded, setExpanded] = useState(false);
 
     const clickMenu = () => {
         setExpanded(!isExpanded);
@@ -13,7 +13,7 @@ function BurgerMenu() {
 
     return (
         <div className={`${styles.item}`}>
-            <div onClick={clickMenu}>
+            <div onClick={clickMenu} className={'pointer'}>
                 <SvgBurgerMenu/>
             </div>
             <div className={`${styles.backMenu} ${isExpanded ? styles.menuShow : ''}`} onClick={clickMenu}></div>

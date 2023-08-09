@@ -1,5 +1,5 @@
 import styles from './Main.module.css'
-import banner from "./../../../media/banner/banner.png";
+import banner from "../../../media/banner/banner.png";
 import MainContent from "./MainContent/MainContent";
 
 function Main() {

@@ -1,5 +1,5 @@
 import Header from "../../layouts/Header";
-import Content from "../../Content";
+import Content from "./Content";
 import Footer from "../../layouts/Footer";
 
 export default function Home() {
