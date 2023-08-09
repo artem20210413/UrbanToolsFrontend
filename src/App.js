@@ -1,16 +1,13 @@
-import Home from "./components/Pages/Home/Home";
-
-/** CSS */
+import SettingRoute from "./components/Pages/SettingRoute";
 import './styles/App.css';
 
 // import './Fonts.css';
 
-function App() {
+export default function App() {
     return (
         <div className="App">
-            <Home/>
+            <SettingRoute/>
         </div>
     );
 }
 
-export default App;

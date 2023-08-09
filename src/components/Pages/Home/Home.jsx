@@ -1,6 +1,7 @@
 import Header from "../../layouts/Header";
-import Content from "./Content";
 import Footer from "../../layouts/Footer";
+import Main from "./Main";
+import React from "react";
 
 export default function Home() {
 
@@ -8,7 +9,9 @@ export default function Home() {
     return (
         <div>
             <Header/>
-            <Content/>
+            <div className={'content'}>
+                <Main/>
+            </div>
             <Footer/>
         </div>
     );

@@ -1,7 +1,7 @@
 import Header from "../../layouts/Header";
 import Footer from "../../layouts/Footer";
 
-function Main() {
+export default function Contact() {
 
 
     return (
@@ -9,15 +9,11 @@ function Main() {
 
             <Header/>
             <div className={'content'}>
-                <h1>CASES</h1>
-                <h1>CASES</h1>
-                <h1>CASES</h1>
-                <h1>CASES</h1>
-                <h1>CASES</h1>
+                <h1>Contact</h1>
+                <h1>Contact</h1>
+                <h1>Contact</h1>
             </div>
             <Footer/>
         </div>
     );
 }
-
-export default Main

@@ -1,23 +1,18 @@
 import Header from "../../layouts/Header";
 import Footer from "../../layouts/Footer";
 
-function Main() {
-
+export default function Map() {
 
     return (
         <div>
-
             <Header/>
             <div className={'content'}>
-                <h1>CASES</h1>
-                <h1>CASES</h1>
-                <h1>CASES</h1>
-                <h1>CASES</h1>
-                <h1>CASES</h1>
+                <h1>MAP</h1>
+                <h1>MAP</h1>
+                <h1>MAP</h1>
+                <h1>MAP</h1>
             </div>
             <Footer/>
         </div>
     );
 }
-
-export default Main

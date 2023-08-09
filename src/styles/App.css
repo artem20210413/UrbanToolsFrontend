@@ -42,6 +42,12 @@ body {
     flex-direction: column;
 }
 
+.content {
+    padding-top: var(--header-size);
+    padding-bottom: var(--footer-size);
+}
+
+
 .pointer{
     cursor: pointer;
 }
