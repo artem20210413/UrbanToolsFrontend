@@ -9,13 +9,15 @@ export default function Search() {
         <div>
 
             <Header/>
-            <h1>Search</h1>
-            <h1>Search</h1>
-            <h1>Search</h1>
-            <h1>Search</h1>
-            <h1>Search</h1>
-            <h1>Search</h1>
-            <h1>{search}</h1>
+            <div className={'content'}>
+                <h1>Search</h1>
+                <h1>Search</h1>
+                <h1>Search</h1>
+                <h1>Search</h1>
+                <h1>Search</h1>
+                <h1>Search</h1>
+                <h1>{search}</h1>
+            </div>
             <Footer/>
         </div>
     );
