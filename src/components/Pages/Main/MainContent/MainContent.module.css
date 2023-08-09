@@ -1,0 +1,68 @@
+
+.item {
+    /*margin: 20px;*/
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    margin-bottom: 32px;
+}
+
+.item_left {
+    align-content: flex-start;
+
+}
+
+.item_right {
+    align-content: flex-end;
+
+}
+
+.content {
+    width: 50%;
+
+    transition: all var(--transition-ease) ease;
+}
+
+.title {
+}
+
+
+.body {
+    padding-left: 32px;
+    border-left: 4px solid var(--accent-second-color);
+
+}
+
+.body p {
+    color: var(--gray-color);
+}
+
+.button_hide {
+    display: flex;
+    justify-content: flex-end;
+    transition: all var(--transition-ease) ease;
+    cursor: pointer;
+    color: var(--accent-second-color);
+}
+
+.button_hide svg {
+    fill: var(--accent-second-color); /* Задает красный цвет для иконки */
+}
+
+.button_hide:hover {
+    transform: scale(1.02);
+}
+
+
+@media (max-width: 1366px) {
+
+    .content {
+        width: 100%;
+    }
+
+    .item_right {
+        align-content: flex-start;
+
+    }
+}

@@ -1,0 +1,36 @@
+.item {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: var(--footer-size);
+    background-color: var(--black-color);
+    color: var(--white-color);
+}
+
+.content {
+    position: absolute;
+    /*justify-content: flex-end;*/
+
+    justify-content: center; /* Выравнивание элементов по краям header */
+    align-items: center;
+    display: flex;
+    bottom: 0;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+img {
+    margin: 0 50px;
+    height: 64px;
+
+    transition: all var(--transition-ease) ease;
+}
+
+@media (max-width: 1000px) {
+    img {
+        margin: 0 30px;
+        height: auto;
+        width: calc(18svw);
+    }
+}

@@ -1,0 +1,77 @@
+.item {
+    margin-left: 20px;
+    display: none;
+}
+
+.menu {
+    position: absolute;
+    top: 0;
+    left: calc((-70svw) - 10px);
+    height: 100svh;
+    min-width: 150px;
+    width: 20svw;
+    background-color: var(--white-color);
+    transition: left 0.5s ease;
+    z-index: 110;
+}
+
+.backMenu {
+    position: absolute;
+    top: 0;
+    left: calc((100vw) + 10px);
+    height: 100vh;
+    width: 100vw;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(8px);
+    transition: left 0.5s ease;
+    z-index: 105;
+
+}
+
+.menuNav {
+    margin-top: 60px;
+}
+
+.menuNav nav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+.menuNav ul > :not(:first-child) {
+    margin-top: 0;;
+}
+
+.menuNav ul {
+    display: flex;
+    flex-direction: column;
+}
+
+.menuNav a {
+    color: var(--black-color);
+    text-decoration: none;
+}
+
+
+.menuShow {
+    left: 0;
+}
+
+.closeButton {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+}
+
+
+/*.closeButton svg:hover {*/
+/*    transform: scale(1.02);*/
+/*}*/
+
+@media (max-width: 850px) {
+    .item {
+        display: flex;
+    }
+}

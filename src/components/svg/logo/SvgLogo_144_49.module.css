@@ -1,0 +1,10 @@
+
+.item {
+    display: none;
+}
+
+@media (max-width: 1000px) {
+    .item {
+        display: flex;
+    }
+}

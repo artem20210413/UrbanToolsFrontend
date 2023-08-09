@@ -1,0 +1,59 @@
+:root {
+    --input-size-h: 32px;
+
+    --input-size-w: 352px;
+    --input-size-middle-w: 200px;
+    --input-size-small-w: 110px;
+
+    --input-size-button-w: 70px;
+}
+
+.item {
+    padding: 0;
+    height: var(--input-size-h);
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid var(--black-color);
+    width: var(--input-size-w);
+    transition: width var(--transition-ease) ease;
+}
+
+.item input {
+    background-color: var(--white-color);
+    height: 24px;
+    flex: 1;
+    border: none;
+    outline: none;
+    box-shadow: none;
+    padding: 7px 0 0 16px;
+}
+
+.item button {
+    padding: 0;
+    height: var(--input-size-h);
+    background-color: var(--white-color);
+    color: var(--accent-second-color);
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+@media (max-width: 1366px) {
+    .item {
+        width: var(--input-size-middle-w);
+    }
+
+    .item input {
+        width: calc(var(--input-size-middle-w) - var(--input-size-button-w));
+    }
+}
+
+@media (max-width: 600px) {
+    .item {
+        width: var(--input-size-small-w);
+    }
+
+    .item input {
+        width: calc(var(--input-size-small-w) - var(--input-size-button-w));
+    }
+}

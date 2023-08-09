@@ -1,0 +1,178 @@
+@font-face {
+    font-family: 'NuberNext';
+    src: url('/src/media/fonts/Nuber.Next/NuberNext-Bold.otf') format('opentype');
+    font-weight: 700;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'NuberNext';
+    src: url('/src/media/fonts/Nuber.Next/NuberNext-Bold.otf') format('opentype');
+    font-weight: 950;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'NuberNext';
+    src: url('/src/media/fonts/Nuber.Next/NuberNext-Regular.otf') format('opentype');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'NuberNext';
+    src: url('/src/media/fonts/Nuber.Next/NuberNext-Regular.otf') format('opentype');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'NuberNext';
+    src: url('/src/media/fonts/Nuber.Next/NuberNext-ExtraLightWide.otf') format('opentype');
+    font-weight: 280;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'NuberNext';
+    src: url('/src/media/fonts/Nuber.Next/NuberNext-Heavy.otf') format('opentype');
+    font-weight: 900;
+    font-style: normal;
+}
+
+
+
+
+/** fonts */
+.font-title {
+    font-size: 40px;
+    font-weight: 280;
+    line-height: 48px;
+    letter-spacing: -0.04em;
+    text-align: left;
+}
+
+.font-headline {
+    font-size: 36px;
+    font-weight: 280;
+    line-height: 48px;
+    letter-spacing: -0.04em;
+    text-align: left;
+}
+
+.font-subtitle {
+    font-size: 32px;
+    font-weight: 280;
+    line-height: 48px;
+    letter-spacing: -0.04em;
+    text-align: left;
+}
+
+.font-text-large {
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 48px;
+    letter-spacing: -0.04em;
+    text-align: left;
+}
+
+.font-text {
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: 0em;
+    text-align: left;
+
+}
+
+.font-text-small {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 16px;
+    letter-spacing: 0em;
+    text-align: left;
+}
+
+.font-button {
+    font-size: 24px;
+    font-weight: 300;
+    line-height: 24px;
+    letter-spacing: 0em;
+    text-align: left;
+}
+
+
+.font-menu {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 16px;
+    letter-spacing: 0em;
+    text-align: left;
+}
+
+
+.font-title-b {
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 48px;
+    letter-spacing: -0.04em;
+    text-align: left;
+}
+
+.font-headline-b {
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 48px;
+    letter-spacing: -0.04em;
+    text-align: left;
+}
+
+.font-subtitle-b {
+    font-size: 32px;
+    font-weight: 950;
+    line-height: 48px;
+    letter-spacing: 0em;
+    text-align: left;
+    text-decoration: underline;
+}
+
+.font-text-large-b {
+    font-size: 24px;
+    font-weight: 900;
+    line-height: 48px;
+    letter-spacing: -0.04em;
+    text-align: left;
+}
+
+
+.font-text-b {
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 24px;
+    letter-spacing: 0em;
+    text-align: left;
+}
+
+.font-text-small-b {
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 16px;
+    letter-spacing: 0em;
+    text-align: left;
+}
+
+.font-button-b {
+    font-size: 24px;
+    font-weight: 900;
+    line-height: 24px;
+    letter-spacing: 0em;
+    text-align: left;
+}
+
+.font-menu-b {
+    font-size: 16px;
+    font-weight: 900;
+    line-height: 16px;
+    letter-spacing: 0em;
+    text-align: left;
+}
+

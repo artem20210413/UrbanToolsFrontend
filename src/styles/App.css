@@ -1,0 +1,45 @@
+@import url('https://fonts.googleapis.com/css2?family=Fasthand&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import "Fonts.css";
+
+:root {
+
+    /* Color */
+    --black-color: #0D0D0D;
+    --white-color: #FFFFFF;
+    --gray-color: #606060;
+    --gray-pale-color: #D9D9D9;
+    --accent-first-color: #004080;
+    --accent-second-color: #0E67EC;
+
+    /* Const size */
+    --header-size: 64px;
+    --footer-size: 144px;
+
+    --adaptive-small: 370px;
+    --adaptive-medium: 768px;
+    --adaptive-large: 1366px;
+
+    /** Time */
+    --transition-ease: 0.5s
+
+
+}
+
+
+* {
+    font-family: "NuberNext";
+}
+
+body {
+
+    margin: 0;
+    padding: 0;
+}
+
+.App {
+    min-height: 100vh;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+

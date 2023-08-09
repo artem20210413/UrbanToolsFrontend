@@ -1,0 +1,5 @@
+.item {
+    padding-top: var(--header-size);
+    padding-bottom: var(--footer-size);
+    /*height: calc(100vh - (var(--footer-size) + var(--header-size)));*/
+}
