@@ -38,6 +38,11 @@
     cursor: pointer;
 }
 
+.item svg {
+    fill: var(--accent-second-color)
+}
+
+
 @media (max-width: 1366px) {
     .item {
         width: var(--input-size-middle-w);

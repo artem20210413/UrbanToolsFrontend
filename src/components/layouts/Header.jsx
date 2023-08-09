@@ -1,7 +1,7 @@
 import styles from './Header.module.css'
 
 // import React, {useState} from "React";
-import Search from "../UI/Input/Searh";
+import Search from "../UI/Input/Search";
 import BurgerMenu from "./BurgerMenu";
 import SvgLogo_257_49 from "../svg/logo/SvgLogo_257_49";
 import SvgLogo_144_49 from "../svg/logo/SvgLogo_144_49";
