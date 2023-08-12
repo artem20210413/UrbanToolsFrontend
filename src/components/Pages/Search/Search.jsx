@@ -16,8 +16,15 @@ export default function Search() {
     async function fetchData() {
         try {
             const response = await axios.get(`${url}${search}`);
-            setData(response.data.data);
-            console.log('API response:', response.data);
+            // setData(response.data.data);
+
+            const newData = [];
+            for (let i = 0; i < 10; i++) {
+                newData.push(...response.data.data);
+            }
+            setData(newData);
+
+            // console.log('API response:', response.data);
         } catch (error) {
             console.error('API error:', error);
         }
@@ -34,7 +41,8 @@ export default function Search() {
             <div className={'content'}>
 
                 <div className={styles.item}>
-                    <p><span> Search results:</span> {search} </p>
+                    <p><span className={'font-subtitle-b'}> Search results:</span>
+                        <span className={`font-text-b ${styles.indent}`}>{search}</span></p>
 
                     <div className={styles.block}>
                         {data.map((item, index) => (
@@ -42,22 +50,6 @@ export default function Search() {
                                 <BlockCase data={item}/>
                             </div>
                         ))}
-                        {data.map((item, index) => (
-                            <div className={styles.container}>
-                                <BlockCase data={item}/>
-                            </div>
-                        ))}
-                        {data.map((item, index) => (
-                            <div className={styles.container}>
-                                <BlockCase data={item}/>
-                            </div>
-                        ))}
-                        {data.map((item, index) => (
-                            <div className={styles.container}>
-                                <BlockCase data={item}/>
-                            </div>
-                        ))}
-                        {/*<h1>{search}</h1>*/}
                     </div>
                 </div>
 

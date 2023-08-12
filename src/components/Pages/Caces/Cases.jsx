@@ -1,7 +1,9 @@
 import Header from "../../layouts/Header";
 import Footer from "../../layouts/Footer";
+import CaseMenu from "../../UI/CaseMenu/CaseMenu";
+import React from "react";
 
-function Main() {
+export default function Cases() {
 
 
     return (
@@ -9,11 +11,10 @@ function Main() {
 
             <Header/>
             <div className={'content'}>
+                <CaseMenu/>
                 <h1>CASES</h1>
             </div>
             <Footer/>
         </div>
     );
 }
-
-export default Main

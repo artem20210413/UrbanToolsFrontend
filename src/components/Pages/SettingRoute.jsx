@@ -1,9 +1,10 @@
 import {Routes, Route, Outlet, Link} from "react-router-dom";
 import Home from "./Home/Home";
-import Caces from "./Caces/Caces";
+import Cases from "./Caces/Cases";
 import Map from "./Maps/Map";
 import Contact from "./Contact/Contact";
 import Search from "./Search/Search";
+import CaseInfo from "./CaseInfo/CaseInfo";
 
 export default function SettingRoute() {
     return (
@@ -11,7 +12,8 @@ export default function SettingRoute() {
             <Routes>
                 <Route path="/" element={<Outlet/>}>
                     <Route index element={<Home/>}/>
-                    <Route path="cases" element={<Caces/>}/>
+                    <Route path="cases" element={<Cases/>}/>
+                    <Route path="case/:id" element={<CaseInfo/>}/>
                     <Route path="map" element={<Map/>}/>
                     <Route path="contact" element={<Contact/>}/>
                     <Route path="search/:search" element={<Search/>}/>

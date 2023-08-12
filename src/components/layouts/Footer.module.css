@@ -20,7 +20,7 @@
     transform: translate(-50%, -50%);
 }
 
-img {
+.content img {
     margin: 0 50px;
     height: 64px;
 
@@ -28,7 +28,7 @@ img {
 }
 
 @media (max-width: 1000px) {
-    img {
+    .content img {
         margin: 0 30px;
         height: auto;
         width: calc(18svw);

@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from "react-router-dom";
 
 export default function CustomNav() {
     const handleLiClick = (event, path) => {
@@ -11,16 +12,20 @@ export default function CustomNav() {
             <nav className={`font-menu-b`}>
                 <ul>
                     <li onClick={(event) => handleLiClick(event, '/')} className={'pointer'}>
-                        <a href="/">INFO</a>
+                        <Link to="/"> INFO</Link>
+                        {/*<a href="/">INFO</a>*/}
                     </li>
                     <li onClick={(event) => handleLiClick(event, '/cases')} className={'pointer'}>
-                        <a href="/cases">CASES</a>
+                        <Link to="/cases"> CASES</Link>
+                        {/*<a href="/cases">CASES</a>*/}
                     </li>
                     <li onClick={(event) => handleLiClick(event, '/map')} className={'pointer'}>
-                        <a href="/map">MAP</a>
+                        <Link to="/map"> MAP</Link>
+                        {/*<a href="/map">MAP</a>*/}
                     </li>
                     <li onClick={(event) => handleLiClick(event, '/contact')} className={'pointer'}>
-                        <a href="/contact">CONTACT</a>
+                        <Link to="/contact"> CONTACT</Link>
+                        {/*<a href="/contact">CONTACT</a>*/}
                     </li>
                 </ul>
             </nav>

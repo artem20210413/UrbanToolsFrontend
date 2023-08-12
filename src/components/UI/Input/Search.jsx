@@ -19,7 +19,7 @@ function Search() {
     }
 
     function handleClick() {
-        if (search.length > 3) {
+        if (search.length >= 3) {
             window.location.href = `/search/${search}`;
         }
     }

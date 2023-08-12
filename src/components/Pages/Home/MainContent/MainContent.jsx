@@ -28,7 +28,7 @@ function MainContent(props) {
                 <div ref={titleRef} className={styles.title}>
                     <h2 className={'font-subtitle-b'}>{header}</h2>
                 </div>
-                <div className={`${styles.body} font-text}`}>
+                <div className={`${styles.body} font-text`}>
                     {Object.keys(body).map((key, index) => (
                         <p key={key} style={{display: isExpanded || index === 0 ? 'block' : 'none'}}>
                             {body[key]}

@@ -1,0 +1,71 @@
+.item {
+}
+
+.content {
+
+    margin: 35px 0;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Поменяйте размер по своему усмотрению */
+    gap: 16px; /* Пространство между блоками */
+}
+
+.block {
+    min-height: 400px;
+    width: 90%;
+}
+
+.accent {
+    color: var(--accent-second-color);
+}
+
+.info {
+    border-left: 4px solid var(--accent-second-color);
+    padding-left: 24px;
+}
+
+.info p {
+    font-size: 18px;
+    margin: 0;
+    padding: 0;
+}
+
+.indent {
+    padding-left: 16px;
+}
+
+.buttonBack {
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer;
+    color: var(--accent-second-color);
+    transition: all var(--transition-ease);
+}
+
+.buttonBack svg {
+    fill: var(--accent-second-color);
+}
+
+.buttonBack:hover {
+    transform: scale(1.05) translateX(-5px);
+}
+
+.blockDescription {
+    color: var(--gray-color);
+    height: 816px;
+    overflow-y: scroll;
+    padding-right: 10px; /* Добавьте небольшой отступ для скролла, чтобы не перекрывать контент */
+    border-left: 2px solid var(--accent-second-color);
+    padding-left: 24px;
+}
+
+/*.blockDescription {*/
+/*    height: 816px;*/
+/*    overflow-y: scroll;*/
+/*    padding-right: 10px; !* Добавьте небольшой отступ для скролла, чтобы не перекрывать контент *!*/
+/*}*/
+
+.mainImg {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}

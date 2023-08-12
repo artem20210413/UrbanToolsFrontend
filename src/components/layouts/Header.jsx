@@ -35,18 +35,6 @@ function Header() {
                 <div className={styles.nav}>
                     <CustomNav/>
                 </div>
-                {/*<div className={styles.nav}>*/}
-                {/*    <nav className={`font-menu-b`}>*/}
-                {/*        <ul>*/}
-                {/*            <li>*/}
-                {/*                <a href="#">INFO</a>*/}
-                {/*            </li>*/}
-                {/*            <li><a href="#">CASES</a></li>*/}
-                {/*            <li><a href="#">MAP</a></li>*/}
-                {/*            <li><a href="#">CONTACT</a></li>*/}
-                {/*        </ul>*/}
-                {/*    </nav>*/}
-                {/*</div>*/}
             </header>
         </div>
     );
