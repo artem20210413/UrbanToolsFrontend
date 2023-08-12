@@ -6,7 +6,8 @@ export default function Map() {
     return (
         <div>
             <Header/>
-            <div className={'content'}>
+            <div className={'\n' +
+                '            </div>'}>
                 <h1>MAP</h1>
             </div>
             <Footer/>

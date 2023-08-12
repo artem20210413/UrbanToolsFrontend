@@ -19,24 +19,10 @@ function Search() {
     }
 
     function handleClick() {
-        window.location.href = `/search/${search}`;
-    }
-
-
-    async function fetchData() {
-
-        console.log(search);
-        try {
-            // const response = await axios.get(`YOUR_API_ENDPOINT?search=${search}`);
-            // console.log('API response:', response.data);
-        } catch (error) {
-            console.error('API error:', error);
+        if (search.length > 3) {
+            window.location.href = `/search/${search}`;
         }
     }
-
-    useEffect(() => {
-        fetchData(); // Вызовите fetchData при монтировании компонента
-    }, []); // Пустой массив зависимостей означает, что эффект вызывается только один раз при монтировании
 
 
     return (
