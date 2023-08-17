@@ -3,7 +3,7 @@ import Footer from "../../layouts/Footer";
 import CaseMenu from "../../UI/CaseMenu/CaseMenu";
 import React from "react";
 
-export default function Cases() {
+export default function Clusters() {
 
 
     return (
@@ -12,7 +12,7 @@ export default function Cases() {
             <Header/>
             <CaseMenu/>
             <div className={'content-bottom content-body'}>
-                <h1>CASES</h1>
+                <h1>Clusters</h1>
             </div>
             <Footer/>
         </div>

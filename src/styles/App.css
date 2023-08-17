@@ -48,13 +48,19 @@ body {
     margin: 0 10vw;
     transition: margin var(--transition-ease) ease;
 }
+.content-top{
+    padding-top: var(--header-size);
+}
+
+.content-bottom{
+    padding-bottom: var(--footer-size);
+}
+.content-body{
+    margin: 0 10vw;
+    transition: margin var(--transition-ease) ease;
+}
 
 
-/*@media (max-width: 850px) {*/
-/*    .content {*/
-/*        margin: 0 50px;*/
-/*    }*/
-/*}*/
 
 .pointer{
     cursor: pointer;

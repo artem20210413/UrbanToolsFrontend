@@ -8,7 +8,7 @@ export default function Contact() {
         <div>
 
             <Header/>
-            <div className={'content'}>
+            <div className={'content-top content-bottom content-body'}>
                 <h1>Contact</h1>
             </div>
             <Footer/>

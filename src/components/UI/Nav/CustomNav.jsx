@@ -1,7 +1,7 @@
 import React from 'react';
 import {Link} from "react-router-dom";
 
-export default function CustomNav() {
+export default function  CustomNav() {
     const handleLiClick = (event, path) => {
         event.preventDefault(); // Отменяем стандартное поведение ссылки
         window.location.href = path; // Редирект на указанный путь

@@ -1,5 +1,71 @@
 .item {
-    width: 100%;
+    width: 100vw;
     height: 200px;
-    background-color: black;
 }
+
+
+.blockMainText {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.header h2 {
+    margin: 30px 0 20px 0
+}
+
+.blockText {
+    flex: 1;
+    gap: 16px;
+    align-items: start;
+}
+
+.blockMainButton {
+    height: 72px;
+    border-top: 1px solid var(--black-color);
+    border-bottom: 1px solid var(--black-color);
+}
+
+.blockButton {
+    flex: 1;
+    gap: 16px;
+    align-items: center;
+}
+
+.nav {
+    border-top: 1px solid var(--black-color);
+    border-bottom: 1px solid var(--black-color);
+}
+
+.nav ul {
+    display: flex;
+    align-items: center;
+    height: var(--header-size);
+    margin: 0 32px 0 0;
+    padding: 0;
+    list-style: none; /* Убираем маркеры списка */
+}
+
+.nav ul li {
+    border-left: 2px solid var(--black-color);
+    display: flex; /* Отображаем элементы списка в одну строку */
+    width: 160px;
+    justify-content: center; /* Выравнивание элементов по краям header */
+    align-items: center;
+    height: calc(var(--header-size) - 20px);
+
+
+    transition: width var(--transition-ease) ease;
+}
+
+.nav ul li a {
+    display: flex;
+    justify-content: center;
+    text-decoration: none; /* Убираем подчеркивание у ссылок */
+    color: var(--black-color);
+    text-align: center;
+}
+.nav ul li a:hover {
+    box-shadow: inset 0 -1px var(--black-color);
+}
+
