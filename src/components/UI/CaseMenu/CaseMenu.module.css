@@ -1,5 +1,5 @@
 .item {
-    width: 100vw;
+    width: 100%;
     height: 200px;
 }
 
@@ -47,15 +47,16 @@
 }
 
 .nav ul li {
-    border-left: 2px solid var(--black-color);
     display: flex; /* Отображаем элементы списка в одну строку */
     width: 160px;
     justify-content: center; /* Выравнивание элементов по краям header */
     align-items: center;
     height: calc(var(--header-size) - 20px);
-
-
     transition: width var(--transition-ease) ease;
+}
+
+.nav ul li:not(:first-child) {
+    border-left: 2px solid var(--black-color);
 }
 
 .nav ul li a {
@@ -65,6 +66,7 @@
     color: var(--black-color);
     text-align: center;
 }
+
 .nav ul li a:hover {
     box-shadow: inset 0 -1px var(--black-color);
 }

@@ -12,7 +12,7 @@ export default function Clusters() {
             <Header/>
             <CaseMenu/>
             <div className={'content-bottom content-body'}>
-                <h1>Clusters</h1>
+                <h1>SCALES</h1>
             </div>
             <Footer/>
         </div>

@@ -48,21 +48,35 @@ body {
     margin: 0 10vw;
     transition: margin var(--transition-ease) ease;
 }
-.content-top{
+
+.content-top {
     padding-top: var(--header-size);
 }
 
-.content-bottom{
+.content-bottom {
     padding-bottom: var(--footer-size);
 }
-.content-body{
+
+.content-body {
     margin: 0 10vw;
     transition: margin var(--transition-ease) ease;
 }
 
+.content-body-height {
+    min-height: calc(100vh - var(--header-size) - var(--footer-size));
+}
 
+.accent {
+    color: var(--accent-second-color);
+}
 
-.pointer{
+.full-img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.pointer {
     cursor: pointer;
 }
 

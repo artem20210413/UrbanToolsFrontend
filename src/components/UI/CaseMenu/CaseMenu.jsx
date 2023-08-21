@@ -26,7 +26,7 @@ export default function CaseMenu() {
             <nav className={`font-button ${styles.nav}`}>
                 <ul className={`${styles}`}>
                     <li className={`pointer ${styles.blockButton}`}>
-                        <Link to="/cases/clusters">CLUSTERS</Link>
+                        <Link to="/cases/scales">SCALES</Link>
                     </li>
                     <li className={`pointer ${styles.blockButton}`}>
                         <Link to="/cases/cities">CITIES</Link>

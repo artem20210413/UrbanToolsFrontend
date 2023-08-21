@@ -7,6 +7,7 @@ import axios from "axios";
 import {SEARCH_CASE_BY_ID} from "../../../config/api";
 import styles from './CaseInfo.module.css'
 import SvgBack from "../../svg/auxiliary/SvgBack";
+import ImagesSlider from "../../UI/imagesSlider/ImagesSlider";
 
 
 export default function CaseInfo(props) {
@@ -51,15 +52,16 @@ export default function CaseInfo(props) {
                         </div>
                         <div className={styles.info}>
                             <p><span className={'font-text-large-b'}>Cluster<span
-                                className={styles.accent}>:</span></span>
-                                <span className={`${styles.indent} font-text-large`}>{data.cluster?.name ?? 'Default cluster name'}</span></p>
-
+                                className={`accent`}>:</span></span>
+                                <span
+                                    className={`${styles.indent} font-text-large`}>{data.cluster?.name ?? 'Default cluster name'}</span>
+                            </p>
                             <p><span className={'font-text-large-b'}>Case<span
-                                className={styles.accent}>:</span></span> <span
+                                className={`accent`}>:</span></span> <span
                                 className={`${styles.indent} font-text-large`}>{data.name}</span></p>
 
                             <p><span className={'font-text-large-b'}>Location on map<span
-                                className={styles.accent}>:</span></span> <span
+                                className={`accent`}>:</span></span> <span
                                 className={`${styles.indent} font-text-large`}>{data.location}</span></p>
 
                         </div>
@@ -67,10 +69,8 @@ export default function CaseInfo(props) {
 
                     <div className={`${styles.block} ${styles.blockDescription} font-text`}
                          dangerouslySetInnerHTML={{__html: data.description}}/>
-
-
-                    <div className={styles.block}>
-                        <img className={styles.mainImg} src={data.image_main_path} alt={data.name}/>
+                    <div className={`${styles.block} ${styles.blockBottom}`}>
+                        <ImagesSlider images={data.images}/>
                     </div>
 
                 </div>

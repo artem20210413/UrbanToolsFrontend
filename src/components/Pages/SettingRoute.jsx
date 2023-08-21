@@ -14,10 +14,10 @@ export default function SettingRoute() {
             <Routes>
                 <Route path="/" element={<Outlet/>}>
                     <Route index element={<Home/>}/>
-                    <Route path="cases" element={<Navigate to="/cases/clusters"/>}/>
+                    <Route path="cases" element={<Navigate to="/cases/scales"/>}/>
                     {/*<Route path="cases" element={<Cases/>}/>*/}
                     <Route path="cases/cities" element={<Cities/>}/>
-                    <Route path="cases/clusters" element={<Clusters/>}/>
+                    <Route path="cases/scales" element={<Clusters/>}/>
                     <Route path="case/:id" element={<CaseInfo/>}/>
                     <Route path="map" element={<Map/>}/>
                     <Route path="contact" element={<Contact/>}/>
