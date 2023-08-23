@@ -12,14 +12,33 @@
     min-height: 400px;
     width: 90%;
 }
+
 .block:last-child {
     margin-top: 20px;
-    min-height: 400px;
-    width: 90%;
+}
+
+.blockText {
+    color: var(--gray-color);
+    height: 800px;
+    overflow-y: scroll;
+    padding-right: 10px;
+    border-left: 2px solid var(--accent-second-color);
+    padding-left: 24px;
+}
+
+.blockDescription {
+    height: 850px;
+}
+
+.toMap {
+    display: flex;
+    align-items: flex-end;
 }
 
 .blockBottom {
+    width: 100%;
     display: flex;
+    justify-content: center;
     align-items: flex-end;
 }
 
@@ -42,30 +61,31 @@
     padding-left: 16px;
 }
 
-.buttonBack {
-    display: inline-flex;
+.arrow {
+    display: flex;
     align-items: center;
     cursor: pointer;
     color: var(--accent-second-color);
     transition: all var(--transition-ease);
 }
 
-.buttonBack svg {
+.arrow svg {
     fill: var(--accent-second-color);
 }
 
-.buttonBack:hover {
+.arrowBack:hover {
     transform: scale(1.05) translateX(-5px);
 }
 
-.blockDescription {
-    color: var(--gray-color);
-    height: 816px;
-    overflow-y: scroll;
-    padding-right: 10px; /* Добавьте небольшой отступ для скролла, чтобы не перекрывать контент */
-    border-left: 2px solid var(--accent-second-color);
-    padding-left: 24px;
+.arrowMap {
+    justify-content: flex-end;
+    margin-top: 15px;
 }
+
+.arrowMap:hover {
+    transform: scale(1.05) translateX(5px);
+}
+
 
 .mainImg {
     height: 100%;
@@ -81,6 +101,11 @@
         grid-template-columns: repeat(1, 1fr);
         gap: 8px; /* Пространство между блоками */
     }
+
+    .block {
+        width: 100%;
+    }
+
 }
 
 @media (max-width: 850px) {

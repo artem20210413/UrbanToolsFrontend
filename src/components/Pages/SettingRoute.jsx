@@ -5,7 +5,7 @@ import Map from "./Maps/Map";
 import Contact from "./Contact/Contact";
 import Search from "./Search/Search";
 import CaseInfo from "./CaseInfo/CaseInfo";
-import Clusters from "./Clusters/Clusters";
+import Scales from "./Scales/Scales";
 import Cities from "./Cities/Cities";
 
 export default function SettingRoute() {
@@ -17,7 +17,7 @@ export default function SettingRoute() {
                     <Route path="cases" element={<Navigate to="/cases/scales"/>}/>
                     {/*<Route path="cases" element={<Cases/>}/>*/}
                     <Route path="cases/cities" element={<Cities/>}/>
-                    <Route path="cases/scales" element={<Clusters/>}/>
+                    <Route path="cases/scales" element={<Scales/>}/>
                     <Route path="case/:id" element={<CaseInfo/>}/>
                     <Route path="map" element={<Map/>}/>
                     <Route path="contact" element={<Contact/>}/>

@@ -11,7 +11,7 @@ export default function Cities() {
 
             <Header/>
             <CaseMenu/>
-            <div className={'content-bottom content-body'}>
+            <div className={'content-top content-bottom content-body'}>
                 <h1>Cities</h1>
             </div>
             <Footer/>

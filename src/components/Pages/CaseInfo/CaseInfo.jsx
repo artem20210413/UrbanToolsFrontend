@@ -6,7 +6,7 @@ import React, {useEffect, useState} from "react";
 import axios from "axios";
 import {SEARCH_CASE_BY_ID} from "../../../config/api";
 import styles from './CaseInfo.module.css'
-import SvgBack from "../../svg/auxiliary/SvgBack";
+import SvgArrow from "../../svg/auxiliary/SvgArrow";
 import ImagesSlider from "../../UI/imagesSlider/ImagesSlider";
 
 
@@ -23,10 +23,14 @@ export default function CaseInfo(props) {
         window.history.back();
     };
 
+    const goMap = () => {
+        alert('go to map')
+    };
+
     async function fetchData() {
         try {
             const response = await axios.get(`${url}${id}`);
-            console.log('API response:', response.data);
+            // console.log('API response:', response.data);
             setData(response.data.data);
         } catch (error) {
             console.error('API error:', error);
@@ -44,8 +48,8 @@ export default function CaseInfo(props) {
                         <img className={styles.mainImg} src={data.image_main_path} alt={data.name}/>
                     </div>
                     <div className={` ${styles.block} font-text-small`}>
-                        <div className={styles.buttonBack} onClick={goBack}>
-                            <SvgBack/> back
+                        <div className={`${styles.arrow} ${styles.arrowBack}`} onClick={goBack}>
+                            <SvgArrow rotationAngle={0} /> back
                         </div>
                         <div>
                             <h1 className={'font-title-b'}>{data.name}</h1>
@@ -67,9 +71,14 @@ export default function CaseInfo(props) {
                         </div>
                     </div>
 
-                    <div className={`${styles.block} ${styles.blockDescription} font-text`}
-                         dangerouslySetInnerHTML={{__html: data.description}}/>
-                    <div className={`${styles.block} ${styles.blockBottom}`}>
+                    <div className={`${styles.block} ${styles.blockDescription} font-text`}>
+                        <div className={`${styles.blockText}`} dangerouslySetInnerHTML={{__html: data.description}}>
+                        </div>
+                        <div className={`${styles.arrow} ${styles.arrowMap}`} onClick={goMap}>
+                            go to map <SvgArrow rotationAngle={180} />
+                        </div>
+                    </div>
+                    <div className={`${styles.block} ${styles.blockDescription} ${styles.blockBottom}`}>
                         <ImagesSlider images={data.images}/>
                     </div>
 
