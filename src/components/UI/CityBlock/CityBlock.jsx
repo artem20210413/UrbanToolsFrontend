@@ -1,0 +1,53 @@
+import React, {useEffect, useState} from 'react';
+import styles from './CityBlock.module.css'
+import {Link} from "react-router-dom";
+import axios from "axios";
+import {GET_CITIES, SEARCH_CASE_BY_CITY} from "../../../config/api";
+
+// import axios from 'axios'; // Импортируйте axios
+export default function CityBlock(props) {
+    const {city} = props;
+    const [cases, setCases] = useState([]);
+
+    useEffect(() => {
+        fetchData();
+    }, []);
+
+
+    async function fetchData() {
+        try {
+            const response = await axios.get(`${SEARCH_CASE_BY_CITY}${city.id}`);
+            console.log('API get scales response:', response.data);
+            setCases(response.data.data);
+        } catch (error) {
+            console.error('API get scales error:', error);
+        }
+    }
+
+    return (
+        <div className={styles.content}>
+            {/*City*/}
+            <div className={`${styles.blockTitel} ${styles.block}`}>
+                <Link to={`/city/${city.id}`} className={`${styles.cityTitle} font-title customHover`}>
+                    <p>{city.name}</p>
+                </Link>
+                {cases.map((item, index) => (
+                    <Link to={`/case/${item.id}`} className={`${styles.cese} font-text-b customHover`}>
+                        {item.name}
+                    </Link>
+                ))}
+
+            </div>
+
+            <div className={`${styles.blockImg} ${styles.block}`}>
+                <img className={`full-img`} src={city.image_main_path} alt={city.name}/>
+                {/*City: {city.name}*/}
+            </div>
+
+            {/*<div className={styles.blockHeader}>*/}
+            {/*    <h2 className={'font-menu-b'}>{data.name}</h2>*/}
+            {/*</div>*/}
+        </div>
+    );
+}
+

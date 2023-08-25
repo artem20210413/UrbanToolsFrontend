@@ -7,6 +7,7 @@ export default function BlockCase(props) {
     const {data} = props;
 
     function redirect() {
+
     }
 
     return (

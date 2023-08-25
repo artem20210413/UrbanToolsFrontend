@@ -5,7 +5,7 @@ import React, {useEffect, useState} from "react";
 import {GET_CASE, GET_SCALES} from "../../../config/api";
 import axios from "axios";
 import styles from "./Scales.module.css"
-import BlockCase from "../../UI/Block/BlockCase";
+import BlockCase from "../../UI/CaseBlock/BlockCase";
 
 export default function Scales() {
 
@@ -20,7 +20,6 @@ export default function Scales() {
 
     async function getScales() {
         try {
-            // console.log('API get scales');
             const response = await axios.get(`${urlGetScales}`);
             console.log('API get scales response:', response.data);
             setScales(response.data.data);
@@ -31,7 +30,6 @@ export default function Scales() {
 
     async function getCases() {
         try {
-            // console.log('API get cases');
             const response = await axios.get(`${urlGetCases}`);
             console.log('API get cases response:', response.data);
             setCases(response.data.data);

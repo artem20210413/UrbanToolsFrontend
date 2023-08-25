@@ -4,7 +4,7 @@ import axios from 'axios';
 import Header from "../../layouts/Header";
 import Footer from "../../layouts/Footer";
 import {SEARCH_CASE} from "../../../config/api";
-import BlockCase from "../../UI/Block/BlockCase";
+import BlockCase from "../../UI/CaseBlock/BlockCase";
 import styles from './Search.module.css'
 
 export default function Search() {

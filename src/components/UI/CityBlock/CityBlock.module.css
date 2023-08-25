@@ -1,0 +1,48 @@
+* {
+
+}
+
+.content {
+    display: flex;
+    padding: 15px;
+    /*display: grid;*/
+    /*grid-template-columns: repeat(2, 1fr); !* Поменяйте размер по своему усмотрению *!*/
+    border: 1px solid var(--black-color);
+}
+
+.block {
+    /*flex: 1;*/
+    width: 50%;
+    height: 100%;
+}
+
+.blockTitel {
+    display: flex;
+    flex-direction: column;
+    padding: 16px 16px 16px 80px;
+    gap: 16px
+}
+
+.cityTitle {
+    display: flex;
+    justify-content: left;
+    text-decoration: none;
+    color: var(--black-color);
+}
+
+
+
+.cese {
+    margin: 0;
+    text-decoration: none;
+    color: var(--black-color);
+}
+
+.cityTitle p {
+    border-bottom: 1px solid var(--black-color);
+}
+
+
+.blockImg {
+    width: 50%;
+}

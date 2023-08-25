@@ -80,3 +80,11 @@ body {
     cursor: pointer;
 }
 
+.customHover {
+    transition: all var(--transition-ease);
+}
+
+.customHover:hover {
+    transform: scale(1.05)
+}
+
