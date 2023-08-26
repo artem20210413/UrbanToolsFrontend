@@ -42,7 +42,7 @@ export default function CaseInfo(props) {
         <div>
             <Header/>
             <CaseMenu/>
-            <div className={'content-top content-bottom content-body'}>
+            <div className={'content-bottom content-body'}>
                 <div className={styles.content}>
                     <div className={styles.block}>
                         <img className={styles.mainImg} src={data.image_main_path} alt={data.name}/>

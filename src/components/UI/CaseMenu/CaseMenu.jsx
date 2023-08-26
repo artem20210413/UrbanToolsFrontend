@@ -22,7 +22,6 @@ export default function CaseMenu() {
                     </div>
                 </div>
             </div>
-            {/*<div className={`${styles.blockMainButton} ${styles.blockMainText}`}>*/}
             <nav className={`font-button ${styles.nav}`}>
                 <ul className={`${styles}`}>
                     <li className={`pointer ${styles.blockButton}`}>
@@ -33,7 +32,6 @@ export default function CaseMenu() {
                     </li>
                 </ul>
             </nav>
-            {/*</div>*/}
         </div>
     );
 }

@@ -7,6 +7,7 @@ import Search from "./Search/Search";
 import CaseInfo from "./CaseInfo/CaseInfo";
 import Scales from "./Scales/Scales";
 import Cities from "./Cities/Cities";
+import CityInfo from "./CityInfo/CityInfo";
 
 export default function SettingRoute() {
     return (
@@ -17,6 +18,7 @@ export default function SettingRoute() {
                     <Route path="cases" element={<Navigate to="/cases/scales"/>}/>
                     {/*<Route path="cases" element={<Cases/>}/>*/}
                     <Route path="cases/cities" element={<Cities/>}/>
+                    <Route path="city/:id" element={<CityInfo/>}/>
                     <Route path="cases/scales" element={<Scales/>}/>
                     <Route path="case/:id" element={<CaseInfo/>}/>
                     <Route path="map" element={<Map/>}/>

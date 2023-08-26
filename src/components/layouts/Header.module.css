@@ -67,7 +67,7 @@ header {
 }
 
 @media (max-width: 850px) {
-    nav {
+    .nav {
         display: none;
     }
 
@@ -87,18 +87,18 @@ header {
         padding-left: 20px;
     }
 
-    nav ul li {
+    .nav ul li {
         width: 80px;
     }
 }
 
 @media (max-width: 600px) {
 
-    nav ul li {
+    .nav ul li {
         width: 70px;
     }
 
-    nav ul li a {
+    .nav ul li a {
         font-size: 14px;
     }
 

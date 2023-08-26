@@ -28,8 +28,8 @@ export default function CityBlock(props) {
         <div className={styles.content}>
             {/*City*/}
             <div className={`${styles.blockTitel} ${styles.block}`}>
-                <Link to={`/city/${city.id}`} className={`${styles.cityTitle} font-title customHover`}>
-                    <p>{city.name}</p>
+                <Link to={`/city/${city.id}`} className={`${styles.cityTitle} font-title`}>
+                    <p className={`customHover`}>{city.name}</p>
                 </Link>
                 {cases.map((item, index) => (
                     <Link to={`/case/${item.id}`} className={`${styles.cese} font-text-b customHover`}>
@@ -39,14 +39,11 @@ export default function CityBlock(props) {
 
             </div>
 
-            <div className={`${styles.blockImg} ${styles.block}`}>
-                <img className={`full-img`} src={city.image_main_path} alt={city.name}/>
-                {/*City: {city.name}*/}
+            <div className={`${styles.block}`}>
+                <div className={`${styles.blockImg}`}>
+                    <img className={`full-img`} src={city.image_main_path} alt={city.name}/>
+                </div>
             </div>
-
-            {/*<div className={styles.blockHeader}>*/}
-            {/*    <h2 className={'font-menu-b'}>{data.name}</h2>*/}
-            {/*</div>*/}
         </div>
     );
 }
