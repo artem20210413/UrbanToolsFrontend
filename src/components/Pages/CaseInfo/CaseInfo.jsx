@@ -24,7 +24,7 @@ export default function CaseInfo(props) {
     };
 
     const goMap = () => {
-        alert('go to map')
+        window.location.href = `/map/city/${data.city.id}`;
     };
 
     async function fetchData() {
@@ -49,7 +49,7 @@ export default function CaseInfo(props) {
                     </div>
                     <div className={` ${styles.block} font-text-small`}>
                         <div className={`${styles.arrow} ${styles.arrowBack}`} onClick={goBack}>
-                            <SvgArrow rotationAngle={0} /> back
+                            <SvgArrow rotationAngle={0}/> back
                         </div>
                         <div>
                             <h1 className={'font-title-b'}>{data.name}</h1>
@@ -75,7 +75,7 @@ export default function CaseInfo(props) {
                         <div className={`${styles.blockText}`} dangerouslySetInnerHTML={{__html: data.description}}>
                         </div>
                         <div className={`${styles.arrow} ${styles.arrowMap}`} onClick={goMap}>
-                            go to map <SvgArrow rotationAngle={180} />
+                            go to map <SvgArrow rotationAngle={180}/>
                         </div>
                     </div>
                     <div className={`${styles.block} ${styles.blockDescription} ${styles.blockBottom}`}>

@@ -89,6 +89,7 @@
 }
 
 @media (max-width: 1300px) {
+
     .content {
         position: relative;
         padding-top: var(--header-size);
@@ -111,6 +112,5 @@
     .blockCases {
         position: relative;
     }
-
 
 }
