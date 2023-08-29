@@ -57,8 +57,8 @@ export default function Scales() {
                             </div>
                             <div className={styles.cases}>
                                 {cases.map((c, index) => {
-                                    // if (c.cluster.id === s.id) {
-                                    if (true) {
+                                    if (c.cluster.id === s.id) {
+                                    // if (true) {
                                         return (
                                             <div key={c.id} className={styles.container}>
                                                 <BlockCase data={c}/>
@@ -67,22 +67,8 @@ export default function Scales() {
                                         );
                                     }
                                     return null; // Ничего не рендерим, если условие не выполняется
-                                })}
+                                })} </div>
 
-
-                                {cases.map((c, index) => {
-                                    // if (c.cluster.id === s.id) {
-                                    if (true) {
-                                        return (
-                                            <div key={c.id} className={styles.container}>
-                                                <BlockCase data={c}/>
-                                            </div>
-
-                                        );
-                                    }
-                                    return null; // Ничего не рендерим, если условие не выполняется
-                                })}
-                            </div>
                         </div>
                     ))}
                 </div>

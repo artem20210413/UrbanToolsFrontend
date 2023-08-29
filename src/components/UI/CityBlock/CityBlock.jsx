@@ -28,7 +28,7 @@ export default function CityBlock(props) {
         <div className={styles.content}>
             {/*City*/}
             <div className={`${styles.blockTitel} ${styles.block}`}>
-                <Link to={`/city/${city.id}`} className={`${styles.cityTitle} font-title`}>
+                <Link to={`/map/city/${city.id}`} className={`${styles.cityTitle} font-title`}>
                     <p className={`customHover`}>{city.name}</p>
                 </Link>
                 {cases.map((item, index) => (

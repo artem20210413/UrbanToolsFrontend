@@ -18,10 +18,10 @@ export default function SettingRoute() {
                     <Route path="cases" element={<Navigate to="/cases/scales"/>}/>
                     {/*<Route path="cases" element={<Cases/>}/>*/}
                     <Route path="cases/cities" element={<Cities/>}/>
-                    <Route path="city/:id" element={<CityInfo/>}/>
                     <Route path="cases/scales" element={<Scales/>}/>
                     <Route path="case/:id" element={<CaseInfo/>}/>
                     <Route path="map" element={<Map/>}/>
+                    <Route path="map/city/:id" element={<CityInfo/>}/>
                     <Route path="contact" element={<Contact/>}/>
                     <Route path="search/:search" element={<Search/>}/>
                     <Route path="*" element={<NoMatch/>}/>

@@ -14,6 +14,7 @@
     width: 448px;
     min-width: 400px;
     min-height: 75px;
+    height: 216px;
     /*height: 216px;*/
     background-color: var(--black-color);
     color: var(--white-color);
@@ -21,19 +22,30 @@
     justify-content: center;
     align-items: center;
 }
-
 .cases {
+    width: 100%;
     display: flex;
     gap: 16px;
 
     flex-wrap: nowrap;
-    overflow-x: auto;
+    overflow-x: scroll;
     overflow-y: hidden;
 
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+
 }
+.cases::-webkit-scrollbar {
+    display: none;
+}
+
+/*.cases::-webkit-scrollbar {*/
+/*    width: 0*/
+/*}*/
 
 .container {
     min-width: 256px;
+    width: 350px;
     height: 216px;
 }
 
@@ -45,6 +57,7 @@
     }
 
     .scalesHeader {
+        height: 75px;
         width: 100%;
     }
 
