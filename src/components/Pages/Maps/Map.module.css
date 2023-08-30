@@ -13,5 +13,5 @@
     height: calc(100vh - var(--header-size) - var(--footer-size) - 40px);
     margin: 20px;
     position: absolute;
-    background-color: #0E67EC;
+    /*background-color: #0E67EC;*/
 }

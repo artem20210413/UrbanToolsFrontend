@@ -5,6 +5,7 @@ import React, {useEffect, useState} from "react";
 import axios from "axios";
 import {SEARCH_CASE_BY_CITY, SEARCH_CITY_BY_ID} from "../../../config/api";
 import styles from './CityInfo.module.css'
+import MapUI from "../../UI/Map/MapUI";
 
 
 export default function CityInfo(props) {
@@ -43,6 +44,12 @@ export default function CityInfo(props) {
         }
     }
 
+    const locations = cases.map(caseItem => ({
+        lat: parseFloat(caseItem.latitude),
+        lng: parseFloat(caseItem.longitude),
+        name: caseItem.name,
+        location: caseItem.location,
+    }));
 
     return (
         <div>
@@ -53,7 +60,7 @@ export default function CityInfo(props) {
 
                 <div className={styles.blockMap}>
 
-                    MAP
+                    <MapUI locations={locations}/>
 
                     <div className={`${styles.blockCases}`}>
                         {cases.map((item, index) => (

@@ -4,10 +4,13 @@ import styles from "./Contact.module.css"
 import React from "react";
 
 import mapAddress from '../../../media/map/mapAddress.png'
+import MapUI from "../../UI/Map/MapUI";
 
 export default function Contact() {
 
-
+    const locations = [
+        {lat: 47.37721062995981, lng: 8.507874197130002}
+    ];
     return (
         <div>
 
@@ -32,7 +35,9 @@ export default function Contact() {
                         </div>
                     </div>
                     <div className={`${styles.block}`}>
-                        <img className={`full-img`} src={mapAddress} alt="address map"/>
+
+                        <MapUI locations={locations}/>
+                        {/*<img className={`full-img`} src={mapAddress} alt="address map"/>*/}
                     </div>
                 </div>
             </div>
