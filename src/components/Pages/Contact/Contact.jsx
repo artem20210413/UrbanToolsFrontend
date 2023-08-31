@@ -15,7 +15,7 @@ export default function Contact() {
         <div>
 
             <Header/>
-            <div className={`content-top content-bottom content-body content-body-height`}>
+            <div className={`content-top content-bottom content-body content-body-height ${styles.main}`}>
                 <div className={`${styles.item}`}>
                     <div className={`${styles.block}`}>
                         <div className={styles.center}>

@@ -1,9 +1,10 @@
-import React, {useEffect, useState} from 'react';
-import {useParams} from 'react-router-dom';
+import React from 'react';
 import styles from './MapUI.module.css'
-// import {GoogleMap, LoadScript, Marker} from '@googlemaps/react-wrapper';
 import {GoogleMap, LoadScript, Marker, InfoWindow} from '@react-google-maps/api';
 import {MAPS_API_KEY} from "../../../config/google";
+import {grayscaleMapStyles} from "./MapSyles";
+import SvgMarkerMap, {SEARCH_CASE_BY_ID} from "../../svg/auxiliary/SvgMarkerMap";
+// import marker from '../../../media/map/marker.png'
 
 // import axios from 'axios'; // Импортируйте axios
 
@@ -18,6 +19,7 @@ const defaultCenter = {
     name: null,
     locations: null,
 };
+
 
 function calculateCenter(locations) {
     if (locations.length === 0) {
@@ -42,13 +44,8 @@ export default function MapUI({locations, url = null}) {
     const center = calculateCenter(locations);
     const zoom = locations.length > 0 ? 12 : 2;
     const [selectedMarker, setSelectedMarker] = React.useState(null);
-    // const handleMarkerClick = (marker) => {
-    //     setSelectedMarker(marker);
-    // };
+    const circleMarkerSvgBase64 = `data:image/svg+xml;base64,${btoa(SEARCH_CASE_BY_ID)}`;
 
-    // const handleInfoWindowClose = () => {
-    //     setSelectedMarker(null);
-    // };
     const handleMarkerMouseOver = (marker) => {
         setSelectedMarker(marker);
     };
@@ -57,19 +54,29 @@ export default function MapUI({locations, url = null}) {
         setSelectedMarker(null);
     };
 
-
     return (
         <LoadScript googleMapsApiKey={`${MAPS_API_KEY}`}>
             <GoogleMap
                 mapContainerStyle={containerStyle}
                 center={center}
                 zoom={zoom}
+                options={{
+                    styles: grayscaleMapStyles,
+                    disableDefaultUI: true,
+                }}
             >
                 {locations.map((location, index) => (
                     <Marker
                         key={index}
                         position={{lat: location.lat, lng: location.lng}}
-                        // onClick={() => handleMarkerClick(location)}
+                        icon={{
+                            url: circleMarkerSvgBase64, // Передаем базов64-кодированную строку
+                            scaledSize: new window.google.maps.Size(30, 30),
+                        }}
+                        shape={{
+                            coords: [15, 15, 15],
+                            type: 'circle',
+                        }}
                         onMouseOver={() => handleMarkerMouseOver(location)}
                         onMouseOut={handleMarkerMouseOut}
                         onClick={() => {
