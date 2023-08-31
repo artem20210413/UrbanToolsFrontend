@@ -71,7 +71,8 @@ export default function MapUI({locations, url = null}) {
                         position={{lat: location.lat, lng: location.lng}}
                         icon={{
                             url: circleMarkerSvgBase64, // Передаем базов64-кодированную строку
-                            scaledSize: new window.google.maps.Size(30, 30),
+                            // scaledSize: new window.google.maps.Size(30, 30),
+                            scaledSize: { width: 30, height: 30 },
                         }}
                         shape={{
                             coords: [15, 15, 15],
@@ -80,9 +81,8 @@ export default function MapUI({locations, url = null}) {
                         onMouseOver={() => handleMarkerMouseOver(location)}
                         onMouseOut={handleMarkerMouseOut}
                         onClick={() => {
-                            console.log(url, location)
                             if (url) {
-                                window.location.href = `/${url}${location.id}`;
+                                window.location.href = `/${url}${location.id??null}`;
                             }
                         }}
                     >
