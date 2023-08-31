@@ -1,10 +1,15 @@
+
 .item {
-    display: flex;
+    position: relative;
+    /*display: flex;*/
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     margin: 30px;
 }
 
 .block {
-    width: 50%;
+    width: 100%;
+    min-height: 400px;
 }
 
 .center {
@@ -20,11 +25,10 @@
 
 
 @media (max-width: 1300px) {
-
     .item {
-        flex-direction: column-reverse;
+        grid-template-columns: 1fr;
+        /*flex-direction: column-reverse;*/
     }
-
     .block {
         width: 100%;
     }

@@ -45,6 +45,7 @@ export default function CityInfo(props) {
     }
 
     const locations = cases.map(caseItem => ({
+        id: caseItem.id,
         lat: parseFloat(caseItem.latitude),
         lng: parseFloat(caseItem.longitude),
         name: caseItem.name,
@@ -60,7 +61,7 @@ export default function CityInfo(props) {
 
                 <div className={styles.blockMap}>
 
-                    <MapUI locations={locations}/>
+                    <MapUI locations={locations} url={'case/'}/>
 
                     <div className={`${styles.blockCases}`}>
                         {cases.map((item, index) => (

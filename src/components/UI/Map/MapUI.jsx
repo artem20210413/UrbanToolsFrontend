@@ -38,11 +38,10 @@ function calculateCenter(locations) {
     return {lat: centerLat, lng: centerLng};
 }
 
-export default function MapUI({locations}) {
+export default function MapUI({locations, url = null}) {
     const center = calculateCenter(locations);
-    const zoom = locations.length > 0 ? 12: 2;
+    const zoom = locations.length > 0 ? 12 : 2;
     const [selectedMarker, setSelectedMarker] = React.useState(null);
-
     // const handleMarkerClick = (marker) => {
     //     setSelectedMarker(marker);
     // };
@@ -57,6 +56,8 @@ export default function MapUI({locations}) {
     const handleMarkerMouseOut = () => {
         setSelectedMarker(null);
     };
+
+
     return (
         <LoadScript googleMapsApiKey={`${MAPS_API_KEY}`}>
             <GoogleMap
@@ -67,13 +68,19 @@ export default function MapUI({locations}) {
                 {locations.map((location, index) => (
                     <Marker
                         key={index}
-                        position={{ lat: location.lat, lng: location.lng }}
+                        position={{lat: location.lat, lng: location.lng}}
                         // onClick={() => handleMarkerClick(location)}
                         onMouseOver={() => handleMarkerMouseOver(location)}
                         onMouseOut={handleMarkerMouseOut}
+                        onClick={() => {
+                            console.log(url, location)
+                            if (url) {
+                                window.location.href = `/${url}${location.id}`;
+                            }
+                        }}
                     >
                         {selectedMarker === location && location.name && location.location && (
-                            <InfoWindow options={{ disableAutoPan: true  }}>
+                            <InfoWindow options={{disableAutoPan: true}}>
                                 <div>
                                     <h3>{location.name}</h3>
                                     <p>{location.location}</p>

@@ -27,11 +27,12 @@ export default function Map() {
         }
     }
 
-    const locations = cities.map(caseItem => ({
-        lat: parseFloat(caseItem.latitude),
-        lng: parseFloat(caseItem.longitude),
-        name: caseItem.name,
-        location: caseItem.location,
+    const locations = cities.map(cityItem => ({
+        id: cityItem.id,
+        lat: parseFloat(cityItem.latitude),
+        lng: parseFloat(cityItem.longitude),
+        name: cityItem.name,
+        location: cityItem.location,
     }));
     return (
         <div>
@@ -39,7 +40,7 @@ export default function Map() {
             <div className={`content-bottom content-top ${styles.item}`}>
                 <div className={`${styles.content}`}>
                     {/*<h1>MAP</h1>*/}
-                    <MapUI locations={locations}/>
+                    <MapUI locations={locations} url={'map/city/'}/>
                 </div>
             </div>
             <Footer/>
