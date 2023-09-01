@@ -1,10 +1,14 @@
 import styles from './CaseMenu.module.css'
-import {Link} from "react-router-dom";
+import {Link, useLocation} from "react-router-dom";
 import React from "react";
 
 
 export default function CaseMenu() {
 
+    const location = useLocation();
+    const isActive = (path) => {
+        return location.pathname.includes(path) ? `${styles.fontActive}` : '';
+    };
     return (
         <div className={` content-top ${styles.item}`}>
             <div className={`content-body`}>
@@ -24,10 +28,10 @@ export default function CaseMenu() {
             </div>
             <nav className={`font-button ${styles.nav}`}>
                 <ul className={`${styles}`}>
-                    <li className={`pointer ${styles.blockButton}`}>
+                    <li className={`pointer ${styles.blockButton} ${isActive('/scales')}`}>
                         <Link to="/cases/scales">SCALES</Link>
                     </li>
-                    <li className={`pointer ${styles.blockButton}`}>
+                    <li className={`pointer ${styles.blockButton} ${isActive('/cities')}` }>
                         <Link to="/cases/cities">CITIES</Link>
                     </li>
                 </ul>

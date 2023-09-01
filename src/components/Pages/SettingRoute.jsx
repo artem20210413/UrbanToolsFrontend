@@ -13,13 +13,15 @@ export default function SettingRoute() {
     return (
         <div>
             <Routes>
-                <Route path="/" element={<Outlet/>}>
-                    <Route index element={<Home/>}/>
+                <Route path="/"> {/* element={<Outlet/>}*/}
+                    {/*<Route index element={<Home/>}/>*/}
                     <Route path="cases" element={<Navigate to="/cases/scales"/>}/>
+                    <Route path="/" element={<Navigate to="/home"/>}/>
                     {/*<Route path="cases" element={<Cases/>}/>*/}
+                    <Route path="home" element={<Home/>}/>
                     <Route path="cases/cities" element={<Cities/>}/>
                     <Route path="cases/scales" element={<Scales/>}/>
-                    <Route path="case/:id" element={<CaseInfo/>}/>
+                    <Route path="cases/:id" element={<CaseInfo/>}/>
                     <Route path="map" element={<Map/>}/>
                     <Route path="map/city/:id" element={<CityInfo/>}/>
                     <Route path="contact" element={<Contact/>}/>

@@ -32,7 +32,7 @@ export default function CityBlock(props) {
                     <p className={`customHover`}>{city.name}</p>
                 </Link>
                 {cases.map((item, index) => (
-                    <Link to={`/case/${item.id}`} className={`${styles.cese} font-text-b customHover`}>
+                    <Link to={`/cases/${item.id}`} className={`${styles.cese} font-text-b customHover`}>
                         {item.name}
                     </Link>
                 ))}

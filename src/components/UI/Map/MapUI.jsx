@@ -3,7 +3,7 @@ import styles from './MapUI.module.css'
 import {GoogleMap, LoadScript, Marker, InfoWindow} from '@react-google-maps/api';
 import {MAPS_API_KEY} from "../../../config/google";
 import {grayscaleMapStyles} from "./MapSyles";
-import SvgMarkerMap, {SEARCH_CASE_BY_ID} from "../../svg/auxiliary/SvgMarkerMap";
+import {SEARCH_CASE_BY_ID} from "../../svg/auxiliary/SvgMarkerMap";
 // import marker from '../../../media/map/marker.png'
 
 // import axios from 'axios'; // Импортируйте axios
@@ -72,7 +72,7 @@ export default function MapUI({locations, url = null}) {
                         icon={{
                             url: circleMarkerSvgBase64, // Передаем базов64-кодированную строку
                             // scaledSize: new window.google.maps.Size(30, 30),
-                            scaledSize: { width: 30, height: 30 },
+                            scaledSize: {width: 30, height: 30},
                         }}
                         shape={{
                             coords: [15, 15, 15],
@@ -82,7 +82,7 @@ export default function MapUI({locations, url = null}) {
                         onMouseOut={handleMarkerMouseOut}
                         onClick={() => {
                             if (url) {
-                                window.location.href = `/${url}${location.id??null}`;
+                                window.location.href = `/${url}${location.id ?? null}`;
                             }
                         }}
                     >

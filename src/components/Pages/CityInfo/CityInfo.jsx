@@ -61,13 +61,13 @@ export default function CityInfo(props) {
 
                 <div className={styles.blockMap}>
 
-                    <MapUI locations={locations} url={'case/'}/>
+                    <MapUI locations={locations} url={'cases/'}/>
 
                     <div className={`${styles.blockCases}`}>
                         {cases.map((item, index) => (
                             <div className={`${styles.cese}`}>
 
-                                <Link to={`/case/${item.id}`} className={`${styles.link} font-text-b customHover`}>
+                                <Link to={`/cases/${item.id}`} className={`${styles.link} font-text-b customHover`}>
                                     {item.name}
                                 </Link>
                             </div>

@@ -11,7 +11,7 @@ export default function BlockCase(props) {
     }
 
     return (
-        <Link to={`/case/${data.id}`} className={styles.blockCase}>
+        <Link to={`/cases/${data.id}`} className={styles.blockCase}>
             <img className={styles.blockImg} src={data.image_main_path} alt={data.name}/>
             <div className={styles.blockHeader}>
                 <h2 className={'font-menu-b'}>{data.name}</h2>
