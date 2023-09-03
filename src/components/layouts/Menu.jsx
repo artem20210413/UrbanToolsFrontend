@@ -1,7 +1,7 @@
 
 import React, {useState} from "react";
 
-function Menu() {
+export default function Menu() {
     
     return (
       <div className="Couner">
@@ -9,5 +9,3 @@ function Menu() {
       </div>
     );
 }
-
-export default Menu

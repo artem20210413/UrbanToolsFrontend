@@ -28,11 +28,11 @@ export default function CaseMenu() {
             </div>
             <nav className={`font-button ${styles.nav}`}>
                 <ul className={`${styles}`}>
-                    <li className={`pointer ${styles.blockButton} ${isActive('/scales')}`}>
-                        <Link to="/cases/scales">SCALES</Link>
+                    <li className={`pointer ${styles.blockButton} `}>
+                        <Link to="/cases/scales" className={`${isActive('/scales')}`}>SCALES</Link>
                     </li>
-                    <li className={`pointer ${styles.blockButton} ${isActive('/cities')}` }>
-                        <Link to="/cases/cities">CITIES</Link>
+                    <li className={`pointer ${styles.blockButton} }` }>
+                        <Link to="/cases/cities" className={`${isActive('/cities')}`}>CITIES</Link>
                     </li>
                 </ul>
             </nav>

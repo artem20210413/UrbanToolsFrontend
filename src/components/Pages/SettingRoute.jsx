@@ -8,6 +8,9 @@ import CaseInfo from "./CaseInfo/CaseInfo";
 import Scales from "./Scales/Scales";
 import Cities from "./Cities/Cities";
 import CityInfo from "./CityInfo/CityInfo";
+import HomeAdmin from "../layouts/AdminPanel/Home/HomeAdmin";
+import LoginForm from "../layouts/AdminPanel/Login/LoginForm";
+import Logout from "../layouts/AdminPanel/Login/Logout";
 
 export default function SettingRoute() {
     return (
@@ -15,18 +18,28 @@ export default function SettingRoute() {
             <Routes>
                 <Route path="/"> {/* element={<Outlet/>}*/}
                     {/*<Route index element={<Home/>}/>*/}
-                    <Route path="cases" element={<Navigate to="/cases/scales"/>}/>
                     <Route path="/" element={<Navigate to="/home"/>}/>
                     {/*<Route path="cases" element={<Cases/>}/>*/}
                     <Route path="home" element={<Home/>}/>
-                    <Route path="cases/cities" element={<Cities/>}/>
-                    <Route path="cases/scales" element={<Scales/>}/>
-                    <Route path="cases/:id" element={<CaseInfo/>}/>
+                    {/*<Route path="cases" element={<Navigate to="/cases/scales"/>}/>*/}
+                    <Route path="cases">
+                        <Route index element={<Scales/>}/>
+                        <Route path="cities" element={<Cities/>}/>
+                        <Route path="scales" element={<Scales/>}/>
+                        <Route path=":id" element={<CaseInfo/>}/>
+                    </Route>
                     <Route path="map" element={<Map/>}/>
                     <Route path="map/city/:id" element={<CityInfo/>}/>
                     <Route path="contact" element={<Contact/>}/>
                     <Route path="search/:search" element={<Search/>}/>
                     <Route path="*" element={<NoMatch/>}/>
+
+
+                    <Route path="administrator">
+                        <Route index element={<HomeAdmin/>}/>
+                        <Route path="login" element={<LoginForm/>}/>
+                        <Route path="logout" element={<Logout/>}/>
+                    </Route>
                 </Route>
             </Routes>
         </div>

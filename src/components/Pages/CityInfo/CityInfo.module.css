@@ -100,12 +100,14 @@
         position: relative;
         width: calc(100% - 40px);
         height: 350px;
+        /*height: auto;*/
         justify-content: center;
     }
 
     .blockInfo {
         position: relative;
-        height: 700px;
+        /*height: 700px;*/
+        height: auto;
         width: calc(100% - 40px);
     }
 
