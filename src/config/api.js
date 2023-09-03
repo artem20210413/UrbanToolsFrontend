@@ -1,5 +1,11 @@
 const PROTOCOL = 'http://';
 const DOMAIN_NAME = '127.0.0.1:8000';
+export const AUTHORIZATION_LIFE = 60; //MIN
+
+export const DEFAULT_HEADERS = {
+    'Content-Type': 'application/json',
+    'Accept': 'application/json',
+};
 export const SEARCH_CASE = `${PROTOCOL}${DOMAIN_NAME}/api/v1/case/search/`
 export const SEARCH_CASE_BY_CITY = `${PROTOCOL}${DOMAIN_NAME}/api/v1/case/city/`
 export const GET_CASE = `${PROTOCOL}${DOMAIN_NAME}/api/v1/case`

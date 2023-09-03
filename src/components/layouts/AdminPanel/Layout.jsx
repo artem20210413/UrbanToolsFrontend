@@ -1,8 +1,12 @@
 import '../../../styles/Bootstrap.5.3.1.min.css';
 
 
+import {getItemWithExpiry} from '../../Helpers/LocalStorageHelper'
+
 function isAuthenticated() {
-    const token = localStorage.getItem('token');
+    const token = getItemWithExpiry('token');
+    // const token = localStorage.getItem('token');
+
     return !!token; // Вернет true, если токен существует, иначе false
 }
 

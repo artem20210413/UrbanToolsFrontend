@@ -1,7 +1,8 @@
 import React, {useState} from 'react';
 import "../Layout";
 import axios from 'axios';
-import {LOGIN} from "../../../../config/api"; // Импортируйте библиотеку axios
+import {AUTHORIZATION_LIFE, DEFAULT_HEADERS, LOGIN} from "../../../../config/api"; // Импортируйте библиотеку axios
+import {setItemWithExpiry} from '../../../Helpers/LocalStorageHelper'
 
 export default function LoginForm() {
     const [formData, setFormData] = useState({
@@ -19,25 +20,20 @@ export default function LoginForm() {
         });
     };
 
-    const headers = {
-        'Content-Type': 'application/json',
-        Accept: 'application/json',
-    };
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.post(LOGIN, formData, {headers});
+            const response = await axios.post(LOGIN, formData, {DEFAULT_HEADERS});
             const res = response.data;
             console.log(res);
             if (res.success) {
                 const {token} = res.data;
-                localStorage.setItem('token', token);
+                setItemWithExpiry('token', token, AUTHORIZATION_LIFE ?? 120); // set the authorization lifetime, if there is no config then 2 hours (120 min)
                 window.location.href = '/administrator';
             } else {
                 alert(res.error.message);
             }
         } catch (error) {
-            // console.log(error.response.data);
             alert(error.response.data.error.message);
         }
     };
