@@ -11,8 +11,6 @@ export default function Scales() {
 
     const [scales, setScales] = useState([]);
     const [cases, setCases] = useState([]);
-    const urlGetScales = GET_SCALES
-    const urlGetCases = GET_CASE
 
     useEffect(() => {
         fetchData();
@@ -20,7 +18,7 @@ export default function Scales() {
 
     async function getScales() {
         try {
-            const response = await axios.get(`${urlGetScales}`);
+            const response = await axios.get(`${GET_SCALES}`);
             console.log('API get scales response:', response.data);
             setScales(response.data.data);
         } catch (error) {
@@ -30,7 +28,7 @@ export default function Scales() {
 
     async function getCases() {
         try {
-            const response = await axios.get(`${urlGetCases}`);
+            const response = await axios.get(`${GET_CASE}`);
             console.log('API get cases response:', response.data);
             setCases(response.data.data);
         } catch (error) {

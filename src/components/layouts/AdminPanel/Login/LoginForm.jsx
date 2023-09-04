@@ -10,7 +10,7 @@ export default function LoginForm() {
         password: '',
     });
 
-    const [error, setError] = useState(null);
+    // const [error, setError] = useState(null);
 
     const handleInputChange = (e) => {
         const {name, value} = e.target;

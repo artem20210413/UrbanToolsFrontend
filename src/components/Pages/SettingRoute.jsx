@@ -11,6 +11,7 @@ import CityInfo from "./CityInfo/CityInfo";
 import HomeAdmin from "../layouts/AdminPanel/Home/HomeAdmin";
 import LoginForm from "../layouts/AdminPanel/Login/LoginForm";
 import Logout from "../layouts/AdminPanel/Login/Logout";
+import FormCase from "../layouts/AdminPanel/Case/FormCase";
 
 export default function SettingRoute() {
     return (
@@ -37,6 +38,7 @@ export default function SettingRoute() {
 
                     <Route path="administrator">
                         <Route index element={<HomeAdmin/>}/>
+                        <Route path="case" element={<FormCase/>}/>
                         <Route path="login" element={<LoginForm/>}/>
                         <Route path="logout" element={<Logout/>}/>
                     </Route>
