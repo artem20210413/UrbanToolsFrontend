@@ -16,11 +16,12 @@ const currentPath = window.location.pathname;
 const loginPath = '/administrator/login';
 const homePath = '/administrator';
 
-if (!isAuthenticated() && currentPath !== loginPath) {
+const isAdminPanel = currentPath.includes("administrator");
+if (isAdminPanel && !isAuthenticated() && currentPath !== loginPath) {
     window.location.href = loginPath;
 }
 
-if (isAuthenticated() && currentPath === loginPath) {
+if (isAdminPanel && isAuthenticated() && currentPath === loginPath) {
 
     window.location.href = homePath;
 }
