@@ -21,30 +21,31 @@ const defaultCenter = {
 };
 
 
-function calculateCenter(locations) {
-    if (locations.length === 0) {
-        return defaultCenter;
-    }
-
-    let totalLat = 0;
-    let totalLng = 0;
-
-    locations.forEach((location) => {
-        totalLat += location.lat;
-        totalLng += location.lng;
-    });
-
-    const centerLat = totalLat / locations.length;
-    const centerLng = totalLng / locations.length;
-
-    return {lat: centerLat, lng: centerLng};
-}
-
 export default function MapUI({locations, url = null}) {
     const center = calculateCenter(locations);
+    // const [center, setCenter] = React.useState(defaultCenter);
     const zoom = locations.length > 0 ? 12 : 2;
     const [selectedMarker, setSelectedMarker] = React.useState(null);
     const circleMarkerSvgBase64 = `data:image/svg+xml;base64,${btoa(SEARCH_CASE_BY_ID)}`;
+
+    function calculateCenter(locations) {
+        if (locations.length === 0) {
+            return defaultCenter;
+        }
+
+        let totalLat = 0;
+        let totalLng = 0;
+
+        locations.forEach((location) => {
+            totalLat += location.lat;
+            totalLng += location.lng;
+        });
+
+        const centerLat = totalLat / locations.length;
+        const centerLng = totalLng / locations.length;
+
+        return {lat: centerLat, lng: centerLng};
+    }
 
     const handleMarkerMouseOver = (marker) => {
         setSelectedMarker(marker);
@@ -53,7 +54,6 @@ export default function MapUI({locations, url = null}) {
     const handleMarkerMouseOut = () => {
         setSelectedMarker(null);
     };
-
     return (
         <LoadScript googleMapsApiKey={`${MAPS_API_KEY}`}>
             <GoogleMap
@@ -100,29 +100,3 @@ export default function MapUI({locations, url = null}) {
         </LoadScript>
     );
 }
-
-
-// import styles from './Search.module.css'
-// import SvgMagnifyingGlass from "../../svg/auxiliary/SvgMagnifyingGlass";
-// import {useParams} from "react-router-dom";
-//
-// function Search() {
-//
-//     const {search} = useParams();
-//     // const [search, setSearch] = useState('');
-//
-//     // function handleInputChange(event) {
-//     //     setSearch(event.target.value);
-//     // }
-//
-//     return (
-//         <div className={`${styles.item} font-text-small`}>
-//             <input type="text" placeholder="search" value={search ?? ''}/>
-//             <button type="submit">
-//                 <SvgMagnifyingGlass/>
-//             </button>
-//         </div>
-//     );
-// }
-//
-// export default Search

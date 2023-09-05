@@ -53,7 +53,7 @@ export default function CityInfo(props) {
     }));
 
     return (
-        <div>
+        <div className={'h-100'}>
             <Header/>
             {/*<div className={`content-top content-bottom content-mini-body ${styles.content}`}>*/}
             <div className={`${styles.content}`}>

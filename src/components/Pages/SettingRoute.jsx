@@ -15,36 +15,34 @@ import FormCase from "../layouts/AdminPanel/Case/FormCase";
 
 export default function SettingRoute() {
     return (
-        <div>
-            <Routes>
-                <Route path="/"> {/* element={<Outlet/>}*/}
-                    {/*<Route index element={<Home/>}/>*/}
-                    <Route path="/" element={<Navigate to="/home"/>}/>
-                    {/*<Route path="cases" element={<Cases/>}/>*/}
-                    <Route path="home" element={<Home/>}/>
-                    {/*<Route path="cases" element={<Navigate to="/cases/scales"/>}/>*/}
-                    <Route path="cases">
-                        <Route index element={<Scales/>}/>
-                        <Route path="cities" element={<Cities/>}/>
-                        <Route path="scales" element={<Scales/>}/>
-                        <Route path=":id" element={<CaseInfo/>}/>
-                    </Route>
-                    <Route path="map" element={<Map/>}/>
-                    <Route path="map/city/:id" element={<CityInfo/>}/>
-                    <Route path="contact" element={<Contact/>}/>
-                    <Route path="search/:search" element={<Search/>}/>
-                    <Route path="*" element={<NoMatch/>}/>
-
-
-                    <Route path="administrator">
-                        <Route index element={<HomeAdmin/>}/>
-                        <Route path="case" element={<FormCase/>}/>
-                        <Route path="login" element={<LoginForm/>}/>
-                        <Route path="logout" element={<Logout/>}/>
-                    </Route>
+        <Routes>
+            <Route path="/"> {/* element={<Outlet/>}*/}
+                {/*<Route index element={<Home/>}/>*/}
+                <Route path="/" element={<Navigate to="/home"/>}/>
+                {/*<Route path="cases" element={<Cases/>}/>*/}
+                <Route path="home" element={<Home/>}/>
+                {/*<Route path="cases" element={<Navigate to="/cases/scales"/>}/>*/}
+                <Route path="cases">
+                    <Route index element={<Scales/>}/>
+                    <Route path="cities" element={<Cities/>}/>
+                    <Route path="scales" element={<Scales/>}/>
+                    <Route path=":id" element={<CaseInfo/>}/>
                 </Route>
-            </Routes>
-        </div>
+                <Route path="map" element={<Map/>}/>
+                <Route path="map/city/:id" element={<CityInfo/>}/>
+                <Route path="contact" element={<Contact/>}/>
+                <Route path="search/:search" element={<Search/>}/>
+                <Route path="*" element={<NoMatch/>}/>
+
+
+                <Route path="administrator">
+                    <Route index element={<HomeAdmin/>}/>
+                    <Route path="case" element={<FormCase/>}/>
+                    <Route path="login" element={<LoginForm/>}/>
+                    <Route path="logout" element={<Logout/>}/>
+                </Route>
+            </Route>
+        </Routes>
     );
 }
 

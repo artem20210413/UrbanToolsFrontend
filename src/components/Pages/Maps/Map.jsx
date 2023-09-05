@@ -35,7 +35,7 @@ export default function Map() {
         location: cityItem.location,
     }));
     return (
-        <div>
+        <div className={'h-100'}>
             <Header/>
             <div className={`content-bottom content-top ${styles.item}`}>
                 <div className={`${styles.content}`}>

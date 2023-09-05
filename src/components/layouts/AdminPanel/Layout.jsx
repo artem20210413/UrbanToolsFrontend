@@ -5,9 +5,8 @@ import {getItemWithExpiry} from '../../Helpers/LocalStorageHelper'
 
 function isAuthenticated() {
     const token = getItemWithExpiry('token');
-    // const token = localStorage.getItem('token');
 
-    return !!token; // Вернет true, если токен существует, иначе false
+    return !!token; // Returns true if the token exists, otherwise false
 }
 
 console.log(isAuthenticated())
@@ -15,8 +14,8 @@ console.log(isAuthenticated())
 const currentPath = window.location.pathname;
 const loginPath = '/administrator/login';
 const homePath = '/administrator';
-
 const isAdminPanel = currentPath.includes("administrator");
+
 if (isAdminPanel && !isAuthenticated() && currentPath !== loginPath) {
     window.location.href = loginPath;
 }

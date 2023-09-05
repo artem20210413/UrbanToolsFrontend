@@ -1,6 +1,6 @@
 .item {
-    position: absolute;
-    bottom: 0;
+    position: relative;
+    /*bottom: 0;*/
     width: 100%;
     height: var(--footer-size);
     background-color: var(--black-color);
