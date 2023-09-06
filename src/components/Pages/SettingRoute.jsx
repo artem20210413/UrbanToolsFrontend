@@ -8,15 +8,18 @@ import CaseInfo from "./CaseInfo/CaseInfo";
 import Scales from "./Scales/Scales";
 import Cities from "./Cities/Cities";
 import CityInfo from "./CityInfo/CityInfo";
-import HomeAdmin from "../layouts/AdminPanel/Home/HomeAdmin";
-import LoginForm from "../layouts/AdminPanel/Login/LoginForm";
-import Logout from "../layouts/AdminPanel/Login/Logout";
-import FormCase from "../layouts/AdminPanel/Case/FormCase";
+import HomeAdmin from "./AdmitPanel/Home/HomeAdmin";
+import LoginForm from "./AdmitPanel/Login/LoginForm";
+import Logout from "./AdmitPanel/Login/Logout";
+import FormCase from "./AdmitPanel/Case/FormCase";
+import FormCity from "./AdmitPanel/City/FormCity";
+import CaseList from "./AdmitPanel/Case/CaseList";
+import CityList from "./AdmitPanel/City/CityList";
 
 export default function SettingRoute() {
     return (
         <Routes>
-            <Route path="/"> {/* element={<Outlet/>}*/}
+            <Route path="/" element={<Outlet/>}> {/* element={<Outlet/>}*/}
                 {/*<Route index element={<Home/>}/>*/}
                 <Route path="/" element={<Navigate to="/home"/>}/>
                 {/*<Route path="cases" element={<Cases/>}/>*/}
@@ -32,15 +35,31 @@ export default function SettingRoute() {
                 <Route path="map/city/:id" element={<CityInfo/>}/>
                 <Route path="contact" element={<Contact/>}/>
                 <Route path="search/:search" element={<Search/>}/>
-                <Route path="*" element={<NoMatch/>}/>
-
 
                 <Route path="administrator">
                     <Route index element={<HomeAdmin/>}/>
-                    <Route path="case" element={<FormCase/>}/>
+
+                    <Route path="case">
+                        <Route index element={<CaseList/>}/>
+                        <Route path=":id" element={<FormCase/>}/>
+                        <Route path="create" element={<FormCase/>}/>
+                    </Route>
+
+                    <Route path="city">
+                        <Route index element={<CityList/>}/>
+                        <Route path=":id" element={<FormCity/>}/>
+                        <Route path="create" element={<FormCity/>}/>
+                    </Route>
+                    {/*<Route path="case" element={<CaseList/>}/>*/}
+                    {/*<Route path="case/:id" element={<FormCase/>}/>*/}
+                    {/*<Route path="case/create" element={<FormCase/>}/>*/}
+                    {/*<Route path="city" element={<FormCity/>}/>*/}
                     <Route path="login" element={<LoginForm/>}/>
                     <Route path="logout" element={<Logout/>}/>
                 </Route>
+
+
+                <Route path="*" element={<NoMatch/>}/>
             </Route>
         </Routes>
     );

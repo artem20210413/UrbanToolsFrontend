@@ -6,6 +6,7 @@ import axios from "axios";
 import {SEARCH_CASE_BY_CITY, SEARCH_CITY_BY_ID} from "../../../config/api";
 import styles from './CityInfo.module.css'
 import MapUI from "../../UI/Map/MapUI";
+import {GET_CITY_BY_ID} from "../../Helpers/ApiFunctionHelper";
 
 
 export default function CityInfo(props) {
@@ -13,20 +14,22 @@ export default function CityInfo(props) {
     const {id} = useParams();
     const [city, setCity] = useState([]);
     const [cases, setCases] = useState([]);
-    const url = SEARCH_CITY_BY_ID
 
     useEffect(() => {
         fetchData();
     }, []);
 
     async function fetchData() {
+        // const city_ = GET_CITY_BY_ID(id);
+        // console.log('city_: ', city_);
+        // setCity(city_);
         getCityById();
         getCasesById();
     }
 
     async function getCityById() {
         try {
-            const response = await axios.get(`${url}${id}`);
+            const response = await axios.get(`${SEARCH_CITY_BY_ID}${id}`);
             console.log('API get city response:', response.data);
             setCity(response.data.data);
         } catch (error) {

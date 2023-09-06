@@ -1,6 +1,6 @@
 import React from "react";
-import "../Layout";
-import AdminHeader from "../AdminHeader";
+import "../../../layouts/AdminPanel/Layout";
+import AdminHeader from "../../../layouts/AdminPanel/AdminHeader";
 
 export default function HomeAdmin() {
 

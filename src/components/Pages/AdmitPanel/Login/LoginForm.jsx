@@ -1,8 +1,9 @@
 import React, {useState} from 'react';
-import "../Layout";
+import "../../../layouts/AdminPanel/Layout";
 import axios from 'axios';
-import {AUTHORIZATION_LIFE, DEFAULT_HEADERS, LOGIN} from "../../../../config/api"; // Импортируйте библиотеку axios
+import {DEFAULT_HEADERS, LOGIN} from "../../../../config/api"; // Импортируйте библиотеку axios
 import {setItemWithExpiry} from '../../../Helpers/LocalStorageHelper'
+import {AUTHORIZATION_LIFE} from "../../../../config/settings";
 
 export default function LoginForm() {
     const [formData, setFormData] = useState({

@@ -1,9 +1,10 @@
 .content {
     display: flex;
     top: var(--header-size);
-    position: absolute;
+    position: relative;
     width: 100%;
-    min-height: calc(100% - var(--header-size) - var(--footer-size));
+    /*min-height: calc(100% - var(--header-size) - var(--footer-size));*/
+    min-height: calc(100vh - var(--footer-size));
     /*height: 100%;*/
 }
 

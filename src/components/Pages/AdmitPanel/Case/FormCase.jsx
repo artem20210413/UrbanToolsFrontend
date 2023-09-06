@@ -1,12 +1,17 @@
 import React, {useState, useEffect} from 'react';
-import "../Layout";
-import AdminHeader from "../AdminHeader";
+import "../../../layouts/AdminPanel/Layout";
+import AdminHeader from "../../../layouts/AdminPanel/AdminHeader";
 import {IMAGE_FORMATS} from "../../../../config/settings";
 import axios from "axios";
 import {DEFAULT_HEADERS_AND_BEARER_TOKEN, GET_CITIES, GET_SCALES, SAVE_CASE} from "../../../../config/api";
-import {getItemWithExpiry, setItemWithExpiry} from "../../../Helpers/LocalStorageHelper";
+import {getItemWithExpiry} from "../../../Helpers/LocalStorageHelper";
+import {useParams} from "react-router-dom";
 
 export default function FormCase() {
+
+    const { id } = useParams();
+    console.log('ID кейса из URL:', id);
+
 
     const [scales, setScales] = useState([]);
     const [cities, setCities] = useState([]);
