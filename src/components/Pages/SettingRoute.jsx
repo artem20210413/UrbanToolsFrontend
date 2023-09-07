@@ -15,6 +15,7 @@ import FormCase from "./AdmitPanel/Case/FormCase";
 import FormCity from "./AdmitPanel/City/FormCity";
 import CaseList from "./AdmitPanel/Case/CaseList";
 import CityList from "./AdmitPanel/City/CityList";
+import ChangePassword from "./AdmitPanel/ChangePassword/ChangePassword";
 
 export default function SettingRoute() {
     return (
@@ -54,6 +55,13 @@ export default function SettingRoute() {
                     {/*<Route path="case/:id" element={<FormCase/>}/>*/}
                     {/*<Route path="case/create" element={<FormCase/>}/>*/}
                     {/*<Route path="city" element={<FormCity/>}/>*/}
+
+                    <Route path="user">
+                        {/*<Route index element={<CityList/>}/>*/}
+                        {/*<Route path=":id" element={<FormCity/>}/>*/}
+                        <Route path="change-password" element={<ChangePassword/>}/>
+                    </Route>
+                    <Route path="login" element={<LoginForm/>}/>
                     <Route path="login" element={<LoginForm/>}/>
                     <Route path="logout" element={<Logout/>}/>
                 </Route>

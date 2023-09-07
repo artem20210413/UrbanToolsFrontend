@@ -3,9 +3,12 @@ import "../../../layouts/AdminPanel/Layout";
 import AdminHeader from "../../../layouts/AdminPanel/AdminHeader";
 import {IMAGE_FORMATS} from "../../../../config/settings";
 import axios from "axios";
-import {DEFAULT_HEADERS_AND_BEARER_TOKEN, SAVE_CITY, SEARCH_CASE_BY_CITY} from "../../../../config/api";
+import {
+    DEFAULT_HEADERS_AND_BEARER_TOKEN,
+    SAVE_CITY,
+    SEARCH_CITY_BY_ID
+} from "../../../../config/api";
 import {getItemWithExpiry} from "../../../Helpers/LocalStorageHelper";
-import {GET_CITY_BY_ID} from "../../../Helpers/ApiFunctionHelper";
 import {useParams} from "react-router-dom";
 
 export default function FormCity() {
@@ -27,6 +30,31 @@ export default function FormCity() {
         setCity(GET_CITY_BY_ID(id));
     }, []);
 
+    function setFormDataByCity() {
+        if (!city) {
+            return;
+        }
+
+        let updatedFormData = {...city};
+        console.log('updatedFormData', updatedFormData);
+        updatedFormData['latitude_longitude'] = `${updatedFormData['latitude']}, ${updatedFormData['longitude']}`;
+        console.log(updatedFormData);
+        setFormData(updatedFormData);
+    }
+
+    async function GET_CITY_BY_ID(cityId) {
+        if (!cityId) {
+            return;
+        }
+        try {
+            const response = await axios.get(`${SEARCH_CITY_BY_ID}${cityId}`);
+            console.log('API SEARCH_CITY_BY_ID response:', response.data);
+            setCity (response.data.data)
+            setFormDataByCity()
+        } catch (error) {
+            console.error('API SEARCH_CITY_BY_ID error:', error);
+        }
+    }
 
     const handleChange = (e) => {
         const {name, value, files} = e.target;

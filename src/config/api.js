@@ -27,6 +27,7 @@ export const SEARCH_CITY_BY_ID = `${PROTOCOL}${DOMAIN_NAME}/api/v1/city/`
 export const LOGIN = `${PROTOCOL}${DOMAIN_NAME}/api/v1/login`
 export const SAVE_CASE = `${PROTOCOL}${DOMAIN_NAME}/api/v1/case`
 export const SAVE_CITY = `${PROTOCOL}${DOMAIN_NAME}/api/v1/city`
+export const CHANGE_PASSWORD = `${PROTOCOL}${DOMAIN_NAME}/api/v1/change-password`
 
 
 

@@ -19,6 +19,7 @@ export default function CityInfo(props) {
         fetchData();
     }, []);
 
+
     async function fetchData() {
         // const city_ = GET_CITY_BY_ID(id);
         // console.log('city_: ', city_);

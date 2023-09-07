@@ -21,7 +21,7 @@ function Header() {
                             <Link className="nav-link" to="/administrator/city">City</Link>
                         </li>
                         <li className="nav-item">
-                            <Link className="nav-link" to="/administrator/users">User</Link>
+                            <Link className="nav-link" to="/administrator/user/change-password">User</Link>
                         </li>
                     </ul>
                 </div>
