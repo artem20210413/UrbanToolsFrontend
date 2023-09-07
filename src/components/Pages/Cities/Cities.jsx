@@ -1,6 +1,6 @@
 import Header from "../../layouts/Header";
 import Footer from "../../layouts/Footer";
-import CaseMenu from "../../UI/CaseMenu/CaseMenu";
+import CaseMenu from "../../layouts/CaseMenu/CaseMenu";
 import React, {useEffect, useState} from "react";
 import CityBlock from "../../UI/CityBlock/CityBlock";
 import axios from "axios";

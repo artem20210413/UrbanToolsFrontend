@@ -1,6 +1,6 @@
 import Header from "../../layouts/Header";
 import Footer from "../../layouts/Footer";
-import CaseMenu from "../../UI/CaseMenu/CaseMenu";
+import CaseMenu from "../../layouts/CaseMenu/CaseMenu";
 import React from "react";
 
 export default function Cases() {

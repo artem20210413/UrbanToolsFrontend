@@ -1,6 +1,6 @@
 import Header from "../../layouts/Header";
 import Footer from "../../layouts/Footer";
-import CaseMenu from "../../UI/CaseMenu/CaseMenu";
+import CaseMenu from "../../layouts/CaseMenu/CaseMenu";
 import {useParams} from "react-router-dom";
 import React, {useEffect, useState} from "react";
 import axios from "axios";
@@ -55,7 +55,7 @@ export default function CaseInfo(props) {
                             <h1 className={'font-title-b'}>{data.name}</h1>
                         </div>
                         <div className={styles.info}>
-                            <p><span className={'font-text-large-b'}>Cluster<span
+                            <p><span className={'font-text-large-b'}>Scele<span
                                 className={`accent`}>:</span></span>
                                 <span
                                     className={`${styles.indent} font-text-large`}>{data.cluster?.name ?? 'Default cluster name'}</span>

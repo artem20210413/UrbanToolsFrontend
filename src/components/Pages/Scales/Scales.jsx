@@ -1,6 +1,6 @@
 import Header from "../../layouts/Header";
 import Footer from "../../layouts/Footer";
-import CaseMenu from "../../UI/CaseMenu/CaseMenu";
+import CaseMenu from "../../layouts/CaseMenu/CaseMenu";
 import React, {useEffect, useState} from "react";
 import {GET_CASE, GET_SCALES} from "../../../config/api";
 import axios from "axios";
@@ -46,7 +46,7 @@ export default function Scales() {
         <div>
             <Header/>
             <CaseMenu/>
-            <div className={'content-bottom content-body'}>
+            <div className={'content-bottom content-mini-body'}>
                 <div className={`${styles.item}`}>
                     {scales.map((s) => (
                         <div key={s.id} className={`${styles.scales}`}>
