@@ -38,8 +38,10 @@ export default function SettingRoute() {
                 <Route path="contact" element={<Contact/>}/>
                 <Route path="search/:search" element={<Search/>}/>
 
-                <Route path="administrator">
-                    <Route index element={<HomeAdmin/>}/>
+                <Route path="administrator" element={<Outlet/>}>
+
+                    <Route path="" element={<Navigate to="/administrator/case"/>}/>
+                    {/*<Route index element={<HomeAdmin/>}/>*/}
 
                     <Route path="case">
                         <Route index element={<CaseList/>}/>

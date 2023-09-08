@@ -15,6 +15,7 @@ export default function FormCity() {
 
     const {id} = useParams();
     const [city, setCity] = useState([]);
+    const [loading, setLoading] = useState(true);
     const [formData, setFormData] = useState({
         id: null,
         name: '',
@@ -25,9 +26,12 @@ export default function FormCity() {
         location: '',
         image: null,
     });
+    const [successMessage, setSuccessMessage] = useState('');
+    const [errorMessage, setErrorMessage] = useState('');
 
     // console.log('ID кейса из URL:', id);
     useEffect(() => {
+        setLoading(true);
         getCityById(id)
 
     }, []);
@@ -38,7 +42,7 @@ export default function FormCity() {
         }
         try {
             const response = await axios.get(`${SEARCH_CITY_BY_ID}${cityId}`);
-            console.log('API SEARCH_CITY_BY_ID response:', response.data);
+            // console.log('API SEARCH_CITY_BY_ID response:', response.data);
             const locCity = response.data.data;
             setCity(locCity);
 
@@ -51,6 +55,7 @@ export default function FormCity() {
                 longitude: locCity.longitude,
                 latitude_longitude: `${locCity.latitude}, ${locCity.longitude}`,
             });
+            setLoading(false);
 
         } catch (error) {
             console.error('API SEARCH_CITY_BY_ID error:', error);
@@ -85,8 +90,8 @@ export default function FormCity() {
             const res = response.data;
             // console.log('res:', res);
             if (res.success) {
-                // console.log('success:', res);
-                // alert('success')
+                setSuccessMessage('Success');
+                setErrorMessage('');
                 window.location.href = '/administrator/city';
             } else {
                 console.log('error:', res);
@@ -99,11 +104,18 @@ export default function FormCity() {
                     .map((messages) => messages.join('\n'))
                     .join('\n    ');
 
-                alert(`Errors: \n    ${errorMessages}`);
+                setErrorMessage(errorMessages);
+                setSuccessMessage('');
+                // alert(`Errors: \n    ${errorMessages}`);
             } else if (error.response && error.response.data && error.response.data.error && error.response.data.error.message) {
-                alert(error.response.data.error.message);
+
+                setErrorMessage(error.response.data.error.message);
+                setSuccessMessage('');
+                // alert(error.response.data.error.message);
             } else {
-                alert('An error occurred');
+                setErrorMessage('An error occurred');
+                setSuccessMessage('');
+                // alert('An error occurred');
             }
         }
     };
@@ -113,8 +125,24 @@ export default function FormCity() {
             <AdminHeader/>
             <div>
                 <div className="container">
-                    <h1 className="mt-5">Form city</h1>
+                    <h1 className="mt-5">Form city</h1>{loading && id ? (
+                    <div className="d-flex justify-content-center align-items-center" style={{height: '200px'}}>
+                        <div className="spinner-border text-primary" role="status">
+                            <span className="visually-hidden">Loading...</span>
+                        </div>
+                    </div>
+                ) : (
                     <form onSubmit={handleSubmit} className="mt-3">
+                        {successMessage && (
+                            <div className="alert alert-success" role="alert">
+                                {successMessage}
+                            </div>
+                        )}
+                        {errorMessage && (
+                            <div className="alert alert-danger" role="alert">
+                                {errorMessage}
+                            </div>
+                        )}
                         <div className="mb-3">
                             <label htmlFor="name" className="form-label">Name:</label>
                             <input
@@ -178,6 +206,7 @@ export default function FormCity() {
                             <button type="submit" className="w-25 btn btn-primary">Send</button>
                         </div>
                     </form>
+                )}
                 </div>
             </div>
         </div>

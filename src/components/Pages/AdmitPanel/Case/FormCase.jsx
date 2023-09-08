@@ -22,6 +22,9 @@ export default function FormCase() {
     const [loading, setLoading] = useState(true);
     const [scales, setScales] = useState([]);
     const [cities, setCities] = useState([]);
+    const [successMessage, setSuccessMessage] = useState('');
+    const [errorMessage, setErrorMessage] = useState('');
+
     const [formData, setFormData] = useState({
         id: null,
         name: '',
@@ -38,7 +41,6 @@ export default function FormCase() {
     });
 
     useEffect(() => {
-        // При изменении значений latitude_longitude разделите их на две части
         setLoading(true);
         getCities();
         getScales();
@@ -59,12 +61,6 @@ export default function FormCase() {
             updatedFormData[name] = files[0];
         } else if (name === 'images') {
             updatedFormData[name] = files;
-            // updatedFormData['images[]'] = files;
-
-            // updatedFormData[name] = Array.from(files).map(file => file);
-            // updatedFormData[name] = files[0];
-            // updatedFormData[name] = files[1];
-            // updatedFormData[name] = files[2];
         } else {
             updatedFormData[name] = value;
         }
@@ -81,10 +77,13 @@ export default function FormCase() {
             const res = response.data;
             console.log(res);
             if (res.success) {
+
+                setSuccessMessage('Success');
+                setErrorMessage('');
                 window.location.href = '/administrator/case'
             } else {
                 console.log('error: ', res);
-                alert('error');
+                // alert('error');
             }
         } catch (error) {
             // alert(error.response.data.message);
@@ -93,11 +92,19 @@ export default function FormCase() {
                     .map((messages) => messages.join('\n'))
                     .join('\n    ');
 
-                alert(`Errors: \n    ${errorMessages}`);
+                setErrorMessage(errorMessages);
+                setSuccessMessage('');
+
+                // alert(`Errors: \n    ${errorMessages}`);
             } else if (error.response && error.response.data && error.response.data.error && error.response.data.error.message) {
-                alert(error.response.data.error.message);
+
+                setErrorMessage(error.response.data.error.message);
+                setSuccessMessage('');
+                // alert(error.response.data.error.message);
             } else {
-                alert('An error occurred');
+                setErrorMessage('An error occurred');
+                setSuccessMessage('');
+                // alert('An error occurred');
             }
         }
     };
@@ -153,7 +160,8 @@ export default function FormCase() {
             <AdminHeader/>
             <div>
                 <div className="container">
-                    <h1 className="mt-5">Form case</h1>{loading && id ? (
+                    <h1 className="mt-5">Form case</h1>
+                    {loading && id ? (
                     <div className="d-flex justify-content-center align-items-center" style={{height: '200px'}}>
                         <div className="spinner-border text-primary" role="status">
                             <span className="visually-hidden">Loading...</span>
@@ -161,6 +169,16 @@ export default function FormCase() {
                     </div>
                 ) : (
                     <form onSubmit={handleSubmit} className="mt-3">
+                        {successMessage && (
+                            <div className="alert alert-success" role="alert">
+                                {successMessage}
+                            </div>
+                        )}
+                        {errorMessage && (
+                            <div className="alert alert-danger" role="alert">
+                                {errorMessage}
+                            </div>
+                        )}
                         <div className="mb-3">
                             <label htmlFor="name" className="form-label">Name:</label>
                             <input

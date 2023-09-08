@@ -6,6 +6,8 @@ import {setItemWithExpiry} from '../../../Helpers/LocalStorageHelper'
 import {AUTHORIZATION_LIFE} from "../../../../config/settings";
 
 export default function LoginForm() {
+    const [successMessage, setSuccessMessage] = useState('');
+    const [errorMessage, setErrorMessage] = useState('');
     const [formData, setFormData] = useState({
         login: '',
         password: '',
@@ -30,12 +32,18 @@ export default function LoginForm() {
             if (res.success) {
                 const {token} = res.data;
                 setItemWithExpiry('token', token, AUTHORIZATION_LIFE ?? 120); // set the authorization lifetime, if there is no config then 2 hours (120 min)
+                setSuccessMessage('Success');
+                setErrorMessage('');
                 window.location.href = '/administrator';
             } else {
-                alert(res.error.message);
+                setErrorMessage(res.error.message);
+                setSuccessMessage('');
+                // alert(res.error.message);
             }
         } catch (error) {
-            alert(error.response.data.error.message);
+            setErrorMessage(error.response.data.error.message);
+            setSuccessMessage('');
+            // alert(error.response.data.error.message);
         }
     };
 
@@ -48,6 +56,16 @@ export default function LoginForm() {
                         <div className="card-body">
                             <h3 className="card-title text-center">Login</h3>
                             <form onSubmit={handleSubmit}>
+                                {successMessage && (
+                                <div className="alert alert-success" role="alert">
+                                    {successMessage}
+                                </div>
+                            )}
+                                {errorMessage && (
+                                    <div className="alert alert-danger" role="alert">
+                                        {errorMessage}
+                                    </div>
+                                )}
                                 <div className="mb-3">
                                     <label htmlFor="login" className="form-label">Login</label>
                                     <input
