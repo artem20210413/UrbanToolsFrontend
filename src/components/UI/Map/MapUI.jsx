@@ -6,6 +6,7 @@ import {grayscaleMapStyles} from "./MapSyles";
 import {SEARCH_CASE_BY_ID} from "../../svg/auxiliary/SvgMarkerMap";
 // import marker from '../../../media/map/marker.png'
 
+
 // import axios from 'axios'; // Импортируйте axios
 
 const containerStyle = {
@@ -21,12 +22,14 @@ const defaultCenter = {
 };
 
 
-export default function MapUI({locations, url = null}) {
+export default function MapUI({locations, url = null, img = null}) {
     const center = calculateCenter(locations);
     // const [center, setCenter] = React.useState(defaultCenter);
     const zoom = locations.length > 0 ? 12 : 2;
     const [selectedMarker, setSelectedMarker] = React.useState(null);
-    const circleMarkerSvgBase64 = `data:image/svg+xml;base64,${btoa(SEARCH_CASE_BY_ID)}`;
+    const circleMarkerSvgBase64 = img ?? `data:image/svg+xml;base64,${btoa(SEARCH_CASE_BY_ID)}`;
+
+    // const circleMarkerSvgBase64 = IMG_2085;
 
     function calculateCenter(locations) {
         if (locations.length === 0) {

@@ -3,6 +3,7 @@ import Footer from "../../layouts/Footer";
 import styles from "./Contact.module.css"
 import React from "react";
 
+// import IMG_2085 from "../../../media/sundry/IMG_2085.PNG"
 import mapAddress from '../../../media/map/mapAddress.png'
 import MapUI from "../../UI/Map/MapUI";
 
@@ -36,7 +37,7 @@ export default function Contact() {
                     </div>
                     <div className={`${styles.block}`}>
 
-                        <MapUI locations={locations}/>
+                        <MapUI locations={locations}/> {/* img={IMG_2085} */}
                         {/*<img className={`full-img`} src={mapAddress} alt="address map"/>*/}
                     </div>
                 </div>
