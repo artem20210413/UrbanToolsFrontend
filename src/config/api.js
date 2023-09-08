@@ -1,6 +1,6 @@
 import {DOMAIN_NAME} from "./settings";
 
-const PROTOCOL = 'http://';
+const PROTOCOL = 'https://';
 
 export const DEFAULT_HEADERS = {
     // 'Content-Type': 'application/json',

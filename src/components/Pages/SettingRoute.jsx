@@ -24,11 +24,11 @@ export default function SettingRoute() {
                 {/*<Route path="cases" element={<Cases/>}/>*/}
                 <Route path="home" element={<Home/>}/>
                 {/*<Route path="cases" element={<Navigate to="/cases/scales"/>}/>*/}
-                <Route path="cases">
-                    {/*<Route path="" element={<Navigate to="/scales"/>}/>*/}
-                    <Route index element={<Scales/>}/>
-                    <Route path="cities" element={<Cities/>}/>
+                <Route path="cases" element={<Outlet/>}>
+                    <Route path="" element={<Navigate to="scales"/>}/>
+                    {/*<Route index element={<Scales/>}/>*/}
                     <Route path="scales" element={<Scales/>}/>
+                    <Route path="cities" element={<Cities/>}/>
                     <Route path=":id" element={<CaseInfo/>}/>
                 </Route>
                 <Route path="map" element={<Map/>}/>

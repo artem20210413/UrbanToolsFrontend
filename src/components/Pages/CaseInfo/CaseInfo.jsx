@@ -56,7 +56,7 @@ export default function CaseInfo(props) {
                             <h1 className={'font-title-b'}>{data.name}</h1>
                         </div>
                         <div className={styles.info}>
-                            <p><span className={'font-text-large-b'}>Scele<span
+                            <p><span className={'font-text-large-b'}>Scale<span
                                 className={`accent`}>:</span></span>
                                 <span
                                     className={`${styles.indent} font-text-large`}>{data.cluster?.name ?? 'Default cluster name'}</span>
