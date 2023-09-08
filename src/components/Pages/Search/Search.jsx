@@ -38,8 +38,7 @@ export default function Search() {
         <div>
 
             <Header/>
-            <div className={'content-top content-bottom content-body'}>
-
+            <div className={'content-top content-bottom content-body content-body-height'}>
                 <div className={styles.item}>
                     <p><span className={'font-subtitle-b'}> Search results:</span>
                         <span className={`font-text-b ${styles.indent}`}>{search}</span></p>

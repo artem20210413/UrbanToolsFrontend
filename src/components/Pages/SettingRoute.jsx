@@ -27,6 +27,7 @@ export default function SettingRoute() {
                 <Route path="home" element={<Home/>}/>
                 {/*<Route path="cases" element={<Navigate to="/cases/scales"/>}/>*/}
                 <Route path="cases">
+                    {/*<Route path="" element={<Navigate to="/scales"/>}/>*/}
                     <Route index element={<Scales/>}/>
                     <Route path="cities" element={<Cities/>}/>
                     <Route path="scales" element={<Scales/>}/>

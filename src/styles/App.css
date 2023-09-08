@@ -69,7 +69,7 @@ body {
 }
 
 .content-body-height {
-    min-height: calc(100vh - var(--header-size) - var(--footer-size));
+    min-height: calc(100vh - var(--footer-size));
 }
 
 .accent {

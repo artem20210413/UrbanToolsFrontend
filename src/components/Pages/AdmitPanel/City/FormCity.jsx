@@ -16,6 +16,7 @@ export default function FormCity() {
     const {id} = useParams();
     const [city, setCity] = useState([]);
     const [formData, setFormData] = useState({
+        id: null,
         name: '',
         description: '',
         latitude: '',
@@ -27,30 +28,30 @@ export default function FormCity() {
 
     // console.log('ID кейса из URL:', id);
     useEffect(() => {
-        setCity(GET_CITY_BY_ID(id));
+        getCityById(id)
+
     }, []);
 
-    function setFormDataByCity() {
-        if (!city) {
-            return;
-        }
-
-        let updatedFormData = {...city};
-        console.log('updatedFormData', updatedFormData);
-        updatedFormData['latitude_longitude'] = `${updatedFormData['latitude']}, ${updatedFormData['longitude']}`;
-        console.log(updatedFormData);
-        setFormData(updatedFormData);
-    }
-
-    async function GET_CITY_BY_ID(cityId) {
+    async function getCityById(cityId) {
         if (!cityId) {
             return;
         }
         try {
             const response = await axios.get(`${SEARCH_CITY_BY_ID}${cityId}`);
             console.log('API SEARCH_CITY_BY_ID response:', response.data);
-            setCity (response.data.data)
-            setFormDataByCity()
+            const locCity = response.data.data;
+            setCity(locCity);
+
+            setFormData({
+                id: locCity.id,
+                name: locCity.name,
+                description: locCity.description,
+                location: locCity.location,
+                latitude: locCity.latitude,
+                longitude: locCity.longitude,
+                latitude_longitude: `${locCity.latitude}, ${locCity.longitude}`,
+            });
+
         } catch (error) {
             console.error('API SEARCH_CITY_BY_ID error:', error);
         }
@@ -70,7 +71,7 @@ export default function FormCity() {
         } else {
             updatedFormData[name] = value;
         }
-
+        // console.log(updatedFormData);
         setFormData(updatedFormData);
     };
 
@@ -82,13 +83,14 @@ export default function FormCity() {
             const headers = DEFAULT_HEADERS_AND_BEARER_TOKEN(token);
             const response = await axios.post(SAVE_CITY, formData, {headers: headers,});
             const res = response.data;
-            console.log('res:', res);
+            // console.log('res:', res);
             if (res.success) {
-                console.log('success:', res);
-                alert('success')
+                // console.log('success:', res);
+                // alert('success')
+                window.location.href = '/administrator/city';
             } else {
                 console.log('error:', res);
-                alert('success');
+                alert('error');
             }
         } catch (error) {
             // alert(error.response.data.message);
@@ -105,7 +107,6 @@ export default function FormCity() {
             }
         }
     };
-
 
     return (
         <div>
@@ -130,6 +131,7 @@ export default function FormCity() {
                         <div className="mb-3">
                             <label htmlFor="description" className="form-label">Description:</label>
                             <textarea
+                                style={{height: '200px'}}
                                 className="form-control"
                                 id="description"
                                 name="description"

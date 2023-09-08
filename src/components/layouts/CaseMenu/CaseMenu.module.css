@@ -95,7 +95,7 @@
     box-shadow: inset 0 -1px var(--black-color);
 }
 
-@media (max-width: 850px) {
+@media (max-width: 1850px) {
 
     .blockMainText {
         display: none;
