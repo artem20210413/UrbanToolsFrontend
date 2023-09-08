@@ -3,22 +3,30 @@ import "../../../layouts/AdminPanel/Layout";
 import AdminHeader from "../../../layouts/AdminPanel/AdminHeader";
 import {IMAGE_FORMATS} from "../../../../config/settings";
 import axios from "axios";
-import {DEFAULT_HEADERS_AND_BEARER_TOKEN, GET_CITIES, GET_SCALES, SAVE_CASE} from "../../../../config/api";
+
+import {
+    DEFAULT_HEADERS_AND_BEARER_TOKEN,
+    GET_CITIES,
+    GET_SCALES,
+    SAVE_CASE, SEARCH_CASE_BY_ID,
+    SEARCH_CITY_BY_ID
+} from "../../../../config/api";
 import {getItemWithExpiry} from "../../../Helpers/LocalStorageHelper";
 import {useParams} from "react-router-dom";
 
 export default function FormCase() {
 
-    const { id } = useParams();
+    const {id} = useParams();
     console.log('ID кейса из URL:', id);
 
-
+    const [loading, setLoading] = useState(true);
     const [scales, setScales] = useState([]);
     const [cities, setCities] = useState([]);
     const [formData, setFormData] = useState({
+        id: null,
         name: '',
-        cluster_id: 3,
-        city_id: '',
+        cluster_id: null,
+        city_id: null,
         description: '',
         latitude: '',
         longitude: '',
@@ -26,50 +34,45 @@ export default function FormCase() {
         location: '',
         imageMain: null,
         images: [],
+        // 'images[]': [],
     });
 
     useEffect(() => {
         // При изменении значений latitude_longitude разделите их на две части
-        getCities()
-        getScales()
-        if (formData.latitude_longitude) {
-            const [latitude, longitude] = formData.latitude_longitude.split(', ');
-            setFormData((prevData) => ({
-                ...prevData,
-                latitude,
-                longitude,
-            }));
-        }
-    }, [formData.latitude_longitude]);
+        setLoading(true);
+        getCities();
+        getScales();
+        getCaseById();
+
+    }, []);
 
     const handleChange = (e) => {
         const {name, value, files} = e.target;
         const updatedFormData = {...formData};
-
-        if (name === 'images') {
-            // updatedFormData[name] = [...files];
-            // updatedFormData[name] = Array.from(files).map(file => file);
-            updatedFormData[name] = files[0];
-            updatedFormData[name] = files[1];
-            updatedFormData[name] = files[2];
-            // updatedFormData[name] = Array.from(files);
-        } else if (name === 'latitude_longitude') {
+        if (name === 'latitude_longitude') {
+            const [latitude, longitude] = value.split(', ');
+            updatedFormData['latitude'] = latitude;
+            updatedFormData['longitude'] = longitude;
             updatedFormData[name] = value;
         } else if (name === 'imageMain') {
             console.log(files);
             updatedFormData[name] = files[0];
+        } else if (name === 'images') {
+            updatedFormData[name] = files;
+            // updatedFormData['images[]'] = files;
+
+            // updatedFormData[name] = Array.from(files).map(file => file);
+            // updatedFormData[name] = files[0];
+            // updatedFormData[name] = files[1];
+            // updatedFormData[name] = files[2];
         } else {
             updatedFormData[name] = value;
         }
-
         setFormData(updatedFormData);
     };
-
     const handleSubmit = async (e) => {
         e.preventDefault();
-        // Отправьте данные на сервер или выполните другие необходимые действия
         console.log('Submitted form:', formData);
-
 
         try {
             const token = getItemWithExpiry('token');
@@ -78,12 +81,10 @@ export default function FormCase() {
             const res = response.data;
             console.log(res);
             if (res.success) {
-                // const {token} = res.data;
-                console.log('success');
+                window.location.href = '/administrator/case'
             } else {
-                console.log('error');
-                // alert(res.error.message);
-                alert(res);
+                console.log('error: ', res);
+                alert('error');
             }
         } catch (error) {
             // alert(error.response.data.message);
@@ -112,7 +113,6 @@ export default function FormCase() {
         }
     }
 
-
     async function getScales() {
         try {
             const response = await axios.get(`${GET_SCALES}`);
@@ -123,12 +123,43 @@ export default function FormCase() {
         }
     }
 
+    async function getCaseById() {
+        try {
+
+            const response = await axios.get(`${SEARCH_CASE_BY_ID}${id}`);
+            console.log('API SEARCH_CASE_BY_ID response:', response.data);
+            const locCase = response.data.data;
+            console.log(locCase);
+
+            setFormData({
+                id: locCase.id,
+                cluster_id: locCase.cluster.id,
+                city_id: locCase.city.id,
+                name: locCase.name,
+                description: locCase.description,
+                location: locCase.location,
+                latitude: locCase.latitude,
+                longitude: locCase.longitude,
+                latitude_longitude: `${locCase.latitude}, ${locCase.longitude}`,
+            })
+            setLoading(false);
+        } catch (error) {
+            console.error('API get scales error:', error);
+        }
+    }
+
     return (
         <div>
             <AdminHeader/>
             <div>
                 <div className="container">
-                    <h1 className="mt-5">Form case</h1>
+                    <h1 className="mt-5">Form case</h1>{loading && id ? (
+                    <div className="d-flex justify-content-center align-items-center" style={{height: '200px'}}>
+                        <div className="spinner-border text-primary" role="status">
+                            <span className="visually-hidden">Loading...</span>
+                        </div>
+                    </div>
+                ) : (
                     <form onSubmit={handleSubmit} className="mt-3">
                         <div className="mb-3">
                             <label htmlFor="name" className="form-label">Name:</label>
@@ -143,7 +174,7 @@ export default function FormCase() {
                             />
                         </div>
                         <div className="mb-3">
-                            <label htmlFor="cluster_id" className="form-label">Cluster:</label>
+                            <label htmlFor="cluster_id" className="form-label">Scele:</label>
                             <select
                                 className="form-select"
                                 id="cluster_id"
@@ -151,9 +182,10 @@ export default function FormCase() {
                                 value={formData.cluster_id}
                                 onChange={handleChange}
                             >
-                                <option value="">Select a cluster</option>
+                                <option value="">Select an option...</option>
                                 {scales.map((scale) => (
-                                    <option key={scale.id} value={scale.id}>
+                                    <option key={scale.id} value={scale.id}
+                                    >
                                         {scale.name}
                                     </option>
                                 ))}
@@ -168,7 +200,7 @@ export default function FormCase() {
                                 value={formData.city_id}
                                 onChange={handleChange}
                             >
-                                <option value="">Select a city</option>
+                                <option value="">Select an option...</option>
                                 {cities.map((city) => (
                                     <option key={city.id} value={city.id}>
                                         {city.name}
@@ -179,6 +211,7 @@ export default function FormCase() {
                         <div className="mb-3">
                             <label htmlFor="description" className="form-label">Description:</label>
                             <textarea
+                                style={{height: '400px'}}
                                 className="form-control"
                                 id="description"
                                 name="description"
@@ -226,7 +259,7 @@ export default function FormCase() {
                                 type="file"
                                 className="form-control"
                                 id="images"
-                                name="images[]"
+                                name="images"
                                 accept={IMAGE_FORMATS}
                                 multiple
                                 onChange={handleChange}
@@ -236,6 +269,7 @@ export default function FormCase() {
                             <button type="submit" className="w-25 btn btn-primary">Send</button>
                         </div>
                     </form>
+                )}
                 </div>
             </div>
         </div>
