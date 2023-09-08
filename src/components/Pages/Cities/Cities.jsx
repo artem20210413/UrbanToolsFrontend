@@ -32,8 +32,9 @@ export default function Cities() {
         <div>
 
             <Header/>
+            <div className={'content-top content-bottom content-mini-body content-body-height'}>
             <CaseMenu/>
-            <div className={'content-bottom content-body'}>
+            {/*<div className={'content-bottom content-body'}>*/}
                 <div className={styles.container}>
                     {cities.map((item, index) => (
                         <div className={styles.city}>

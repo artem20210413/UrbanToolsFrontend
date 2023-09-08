@@ -1,6 +1,5 @@
 import {Routes, Route, Outlet, Link, Navigate} from "react-router-dom";
 import Home from "./Home/Home";
-import Cases from "./Caces/Cases";
 import Map from "./Maps/Map";
 import Contact from "./Contact/Contact";
 import Search from "./Search/Search";
@@ -8,7 +7,6 @@ import CaseInfo from "./CaseInfo/CaseInfo";
 import Scales from "./Scales/Scales";
 import Cities from "./Cities/Cities";
 import CityInfo from "./CityInfo/CityInfo";
-import HomeAdmin from "./AdmitPanel/Home/HomeAdmin";
 import LoginForm from "./AdmitPanel/Login/LoginForm";
 import Logout from "./AdmitPanel/Login/Logout";
 import FormCase from "./AdmitPanel/Case/FormCase";

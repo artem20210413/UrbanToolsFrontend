@@ -13,7 +13,7 @@ export default function CaseMenu() {
         return location.pathname.includes(path) ? `${styles.fontActive}` : '';
     };
     return (
-        <div className={` content-top ${styles.item}`}>
+        <div className={` ${styles.item}`}>
             <div className={`content-mini-body `}>
                 {/*<div className={`font-subtitle-b ${styles.header}`}>*/}
                 {/*    <h2>SUBTITLE</h2>*/}

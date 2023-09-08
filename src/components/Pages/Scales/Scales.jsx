@@ -45,8 +45,8 @@ export default function Scales() {
     return (
         <div>
             <Header/>
+            <div className={'content-top content-bottom content-mini-body content-body-height'}>
             <CaseMenu/>
-            <div className={'content-bottom content-mini-body'}>
                 <div className={`${styles.item}`}>
                     {scales.map((s) => (
                         <div key={s.id} className={`${styles.scales}`}>

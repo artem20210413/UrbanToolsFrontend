@@ -9,7 +9,7 @@ export default function Home() {
     return (
         <div>
             <Header/>
-            <div className={'content'}>
+            <div className={'content-top content-bottom content-body content-body-height'}>
                 <Main/>
             </div>
             <Footer/>

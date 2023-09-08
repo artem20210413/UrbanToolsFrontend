@@ -54,7 +54,7 @@ body {
 }
 
 .content-bottom {
-    padding-bottom: var(--footer-size);
+    /*padding-bottom: var(--footer-size);*/
 }
 
 .content-body {
@@ -96,4 +96,10 @@ body {
 
 .h-100 {
     min-height: 100%;
+}
+
+@media (max-width: 850px) {
+    .content-body {
+        margin: 0 0;
+    }
 }
