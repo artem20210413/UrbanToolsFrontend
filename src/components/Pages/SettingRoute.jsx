@@ -14,6 +14,8 @@ import FormCity from "./AdmitPanel/City/FormCity";
 import CaseList from "./AdmitPanel/Case/CaseList";
 import CityList from "./AdmitPanel/City/CityList";
 import ChangePassword from "./AdmitPanel/ChangePassword/ChangePassword";
+import ScaleList from "./AdmitPanel/Scales/ScaleList";
+import FormScale from "./AdmitPanel/Scales/FormScale";
 
 export default function SettingRoute() {
     return (
@@ -36,7 +38,7 @@ export default function SettingRoute() {
                 <Route path="contact" element={<Contact/>}/>
                 <Route path="search/:search" element={<Search/>}/>
 
-                <Route path="administrator" element={<Outlet/>}>
+                <Route path="administrator">
 
                     <Route path="" element={<Navigate to="/administrator/case"/>}/>
                     {/*<Route index element={<HomeAdmin/>}/>*/}
@@ -46,11 +48,15 @@ export default function SettingRoute() {
                         <Route path=":id" element={<FormCase/>}/>
                         <Route path="create" element={<FormCase/>}/>
                     </Route>
-
                     <Route path="city">
                         <Route index element={<CityList/>}/>
                         <Route path=":id" element={<FormCity/>}/>
                         <Route path="create" element={<FormCity/>}/>
+                    </Route>
+                    <Route path="scale">
+                        <Route index element={<ScaleList/>}/>
+                        <Route path=":id" element={<FormScale/>}/>
+                        <Route path="create" element={<FormScale/>}/>
                     </Route>
                     {/*<Route path="case" element={<CaseList/>}/>*/}
                     {/*<Route path="case/:id" element={<FormCase/>}/>*/}

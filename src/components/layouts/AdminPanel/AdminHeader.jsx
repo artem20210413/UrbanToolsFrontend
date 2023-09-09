@@ -15,10 +15,13 @@ function Header() {
                 <div className="collapse navbar-collapse justify-content-center" id="navbarNav">
                     <ul className="navbar-nav">
                         <li className="nav-item">
-                            <Link className="nav-link" to="/administrator/case">Case</Link>
+                            <Link className="nav-link" to="/administrator/case">Cases</Link>
                         </li>
                         <li className="nav-item">
-                            <Link className="nav-link" to="/administrator/city">City</Link>
+                            <Link className="nav-link" to="/administrator/city">Cities</Link>
+                        </li>
+                        <li className="nav-item">
+                            <Link className="nav-link" to="/administrator/scale">Scales</Link>
                         </li>
                         <li className="nav-item">
                             <Link className="nav-link" to="/administrator/user/change-password">User</Link>
