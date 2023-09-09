@@ -1,9 +1,9 @@
 import styles from './CaseMenu.module.css'
 import {Link, useLocation} from "react-router-dom";
 import React from "react";
-import IMG_2087 from "../../../media/sundry/IMG_2087.PNG"
-import IMG_2086 from "../../../media/sundry/IMG_2086.PNG"
-import IMG_2085 from "../../../media/sundry/IMG_2085.PNG"
+import IMG_2087 from "../../../media/scale/IMG_2087.PNG"
+import IMG_2086 from "../../../media/scale/IMG_2086.PNG"
+import IMG_2085 from "../../../media/scale/IMG_2085.PNG"
 
 
 export default function CaseMenu() {

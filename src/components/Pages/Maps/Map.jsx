@@ -20,7 +20,6 @@ export default function Map() {
     async function getCities() {
         try {
             const response = await axios.get(`${GET_CITIES}`);
-            console.log('API get cities response:', response.data);
             setCities(response.data.data);
         } catch (error) {
             console.error('API error:', error);
@@ -39,7 +38,6 @@ export default function Map() {
             <Header/>
             <div className={`content-bottom content-top ${styles.item}`}>
                 <div className={`${styles.content}`}>
-                    {/*<h1>MAP</h1>*/}
                     <MapUI locations={locations} url={'map/city/'}/>
                 </div>
             </div>

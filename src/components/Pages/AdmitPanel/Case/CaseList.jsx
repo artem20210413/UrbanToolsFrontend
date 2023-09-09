@@ -3,7 +3,6 @@ import axios from "axios";
 import "../../../layouts/AdminPanel/Layout";
 import AdminHeader from "../../../layouts/AdminPanel/AdminHeader";
 import {GET_CASE} from "../../../../config/api";
-import {Link} from "react-router-dom";
 
 export default function CaseList() {
 
@@ -18,7 +17,6 @@ export default function CaseList() {
     async function getCases() {
         try {
             const response = await axios.get(`${GET_CASE}`);
-            console.log('API get case response:', response.data);
             setCases(response.data.data);
         } catch (error) {
             console.error('API get scales error:', error);
@@ -32,9 +30,6 @@ export default function CaseList() {
         } else {
             window.location.href = `/administrator/case/create`;
         }
-
-
-        // window.location.href = `/administrator/case/` + caseItem !== null ? caseItem.id : `create`;
 
     }
 

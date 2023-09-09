@@ -17,14 +17,6 @@ export default function Search() {
         try {
             const response = await axios.get(`${url}${search}`);
             setData(response.data.data);
-
-            // const newData = [];
-            // for (let i = 0; i < 10; i++) {
-            //     newData.push(...response.data.data);
-            // }
-            // setData(newData);
-
-            // console.log('API response:', response.data);
         } catch (error) {
             console.error('API error:', error);
         }

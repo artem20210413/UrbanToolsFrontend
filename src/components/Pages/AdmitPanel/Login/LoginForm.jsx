@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import "../../../layouts/AdminPanel/Layout";
 import axios from 'axios';
-import {DEFAULT_HEADERS, LOGIN} from "../../../../config/api"; // Импортируйте библиотеку axios
+import {DEFAULT_HEADERS, LOGIN} from "../../../../config/api";
 import {setItemWithExpiry} from '../../../Helpers/LocalStorageHelper'
 import {AUTHORIZATION_LIFE} from "../../../../config/settings";
 
@@ -13,7 +13,6 @@ export default function LoginForm() {
         password: '',
     });
 
-    // const [error, setError] = useState(null);
 
     const handleInputChange = (e) => {
         const {name, value} = e.target;
@@ -38,12 +37,10 @@ export default function LoginForm() {
             } else {
                 setErrorMessage(res.error.message);
                 setSuccessMessage('');
-                // alert(res.error.message);
             }
         } catch (error) {
             setErrorMessage(error.response.data.error.message);
             setSuccessMessage('');
-            // alert(error.response.data.error.message);
         }
     };
 

@@ -9,7 +9,6 @@ import {
     GET_CITIES,
     GET_SCALES,
     SAVE_CASE, SEARCH_CASE_BY_ID,
-    SEARCH_CITY_BY_ID
 } from "../../../../config/api";
 import {getItemWithExpiry} from "../../../Helpers/LocalStorageHelper";
 import {useParams} from "react-router-dom";
@@ -37,7 +36,6 @@ export default function FormCase() {
         location: '',
         imageMain: null,
         images: [],
-        // 'images[]': [],
     });
 
     useEffect(() => {
@@ -51,6 +49,7 @@ export default function FormCase() {
     const handleChange = (e) => {
         const {name, value, files} = e.target;
         const updatedFormData = {...formData};
+
         if (name === 'latitude_longitude') {
             const [latitude, longitude] = value.split(', ');
             updatedFormData['latitude'] = latitude;
@@ -64,6 +63,7 @@ export default function FormCase() {
         } else {
             updatedFormData[name] = value;
         }
+
         setFormData(updatedFormData);
     };
     const handleSubmit = async (e) => {
@@ -100,11 +100,9 @@ export default function FormCase() {
 
                 setErrorMessage(error.response.data.error.message);
                 setSuccessMessage('');
-                // alert(error.response.data.error.message);
             } else {
                 setErrorMessage('An error occurred');
                 setSuccessMessage('');
-                // alert('An error occurred');
             }
         }
     };

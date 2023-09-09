@@ -2,12 +2,11 @@ import React, {useState, useEffect} from 'react';
 import axios from "axios";
 import "../../../layouts/AdminPanel/Layout";
 import AdminHeader from "../../../layouts/AdminPanel/AdminHeader";
-import {GET_CASE, GET_CITIES} from "../../../../config/api";
+import {GET_CITIES} from "../../../../config/api";
 
 export default function CityList() {
 
     const [cities, setCities] = useState([]);
-
 
     useEffect(() => {
         getCities();
@@ -17,7 +16,6 @@ export default function CityList() {
     async function getCities() {
         try {
             const response = await axios.get(`${GET_CITIES}`);
-            console.log('API get case response:', response.data);
             setCities(response.data.data);
         } catch (error) {
             console.error('API get scales error:', error);
@@ -31,10 +29,6 @@ export default function CityList() {
         } else {
             window.location.href = `/administrator/city/create`;
         }
-
-
-        // window.location.href = `/administrator/case/` + caseItem !== null ? caseItem.id : `create`;
-
     }
 
 

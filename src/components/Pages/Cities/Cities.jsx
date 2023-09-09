@@ -6,7 +6,6 @@ import CityBlock from "../../UI/CityBlock/CityBlock";
 import axios from "axios";
 import {GET_CITIES} from "../../../config/api";
 import styles from "./Cities.module.css";
-import BlockCase from "../../UI/CaseBlock/BlockCase";
 
 export default function Cities() {
 
@@ -34,7 +33,6 @@ export default function Cities() {
             <Header/>
             <div className={'content-top content-bottom content-mini-body content-body-height'}>
             <CaseMenu/>
-            {/*<div className={'content-bottom content-body'}>*/}
                 <div className={styles.container}>
                     {cities.map((item, index) => (
                         <div className={styles.city}>

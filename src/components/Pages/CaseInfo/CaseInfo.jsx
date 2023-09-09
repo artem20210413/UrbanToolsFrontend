@@ -30,7 +30,6 @@ export default function CaseInfo(props) {
     async function fetchData() {
         try {
             const response = await axios.get(`${url}${id}`);
-            // console.log('API response:', response.data);
             setData(response.data.data);
         } catch (error) {
             console.error('API error:', error);

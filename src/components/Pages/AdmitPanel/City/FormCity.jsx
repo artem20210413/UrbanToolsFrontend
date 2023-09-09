@@ -14,7 +14,6 @@ import {useParams} from "react-router-dom";
 export default function FormCity() {
 
     const {id} = useParams();
-    const [city, setCity] = useState([]);
     const [loading, setLoading] = useState(true);
     const [formData, setFormData] = useState({
         id: null,
@@ -42,9 +41,7 @@ export default function FormCity() {
         }
         try {
             const response = await axios.get(`${SEARCH_CITY_BY_ID}${cityId}`);
-            // console.log('API SEARCH_CITY_BY_ID response:', response.data);
             const locCity = response.data.data;
-            setCity(locCity);
 
             setFormData({
                 id: locCity.id,
@@ -70,13 +67,11 @@ export default function FormCity() {
             const [latitude, longitude] = value.split(', ');
             updatedFormData['latitude'] = latitude;
             updatedFormData['longitude'] = longitude;
-        }
-        if (name === 'image') {
+        } else if (name === 'image') {
             updatedFormData[name] = files[0];
         } else {
             updatedFormData[name] = value;
         }
-        // console.log(updatedFormData);
         setFormData(updatedFormData);
     };
 
@@ -88,7 +83,7 @@ export default function FormCity() {
             const headers = DEFAULT_HEADERS_AND_BEARER_TOKEN(token);
             const response = await axios.post(SAVE_CITY, formData, {headers: headers,});
             const res = response.data;
-            // console.log('res:', res);
+
             if (res.success) {
                 setSuccessMessage('Success');
                 setErrorMessage('');
@@ -97,25 +92,20 @@ export default function FormCity() {
                 console.log('error:', res);
                 alert('error');
             }
+
         } catch (error) {
-            // alert(error.response.data.message);
             if (error.response && error.response.data && error.response.data.errors) {
                 const errorMessages = Object.values(error.response.data.errors)
                     .map((messages) => messages.join('\n'))
                     .join('\n    ');
-
                 setErrorMessage(errorMessages);
                 setSuccessMessage('');
-                // alert(`Errors: \n    ${errorMessages}`);
             } else if (error.response && error.response.data && error.response.data.error && error.response.data.error.message) {
-
                 setErrorMessage(error.response.data.error.message);
                 setSuccessMessage('');
-                // alert(error.response.data.error.message);
             } else {
                 setErrorMessage('An error occurred');
                 setSuccessMessage('');
-                // alert('An error occurred');
             }
         }
     };

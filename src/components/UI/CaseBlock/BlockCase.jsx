@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React from 'react';
 import styles from './BlockCase.module.css'
 import {Link} from "react-router-dom";
 
@@ -6,9 +6,6 @@ import {Link} from "react-router-dom";
 export default function BlockCase(props) {
     const {data} = props;
 
-    function redirect() {
-
-    }
 
     return (
         <Link to={`/cases/${data.id}`} className={styles.blockCase}>

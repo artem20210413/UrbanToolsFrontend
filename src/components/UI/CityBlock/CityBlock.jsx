@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react';
 import styles from './CityBlock.module.css'
 import {Link} from "react-router-dom";
 import axios from "axios";
-import {GET_CITIES, SEARCH_CASE_BY_CITY} from "../../../config/api";
+import {SEARCH_CASE_BY_CITY} from "../../../config/api";
 
 // import axios from 'axios'; // Импортируйте axios
 export default function CityBlock(props) {

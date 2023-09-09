@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import "../../../layouts/AdminPanel/Layout";
 import axios from "axios";
-import {CHANGE_PASSWORD, DEFAULT_HEADERS_AND_BEARER_TOKEN, SAVE_CITY} from "../../../../config/api";
+import {CHANGE_PASSWORD, DEFAULT_HEADERS_AND_BEARER_TOKEN} from "../../../../config/api";
 import {getItemWithExpiry} from "../../../Helpers/LocalStorageHelper";
 import AdminHeader from "../../../layouts/AdminPanel/AdminHeader";
 

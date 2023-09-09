@@ -6,7 +6,6 @@ import axios from "axios";
 import {SEARCH_CASE_BY_CITY, SEARCH_CITY_BY_ID} from "../../../config/api";
 import styles from './CityInfo.module.css'
 import MapUI from "../../UI/Map/MapUI";
-import {GET_CITY_BY_ID} from "../../Helpers/ApiFunctionHelper";
 
 
 export default function CityInfo(props) {
@@ -21,9 +20,6 @@ export default function CityInfo(props) {
 
 
     async function fetchData() {
-        // const city_ = GET_CITY_BY_ID(id);
-        // console.log('city_: ', city_);
-        // setCity(city_);
         getCityById();
         getCasesById();
     }
@@ -31,7 +27,6 @@ export default function CityInfo(props) {
     async function getCityById() {
         try {
             const response = await axios.get(`${SEARCH_CITY_BY_ID}${id}`);
-            console.log('API get city response:', response.data);
             setCity(response.data.data);
         } catch (error) {
             console.error('API error:', error);
@@ -54,23 +49,18 @@ export default function CityInfo(props) {
         lng: parseFloat(caseItem.longitude),
         name: caseItem.name,
         location: caseItem.location,
+        scaleId: caseItem.cluster.id,
     }));
 
     return (
         <div className={'h-100'}>
             <Header/>
-            {/*<div className={`content-top content-bottom content-mini-body ${styles.content}`}>*/}
             <div className={`${styles.content}`}>
-                {/*<div className={styles.content}>*/}
-
                 <div className={styles.blockMap}>
-
-                    <MapUI locations={locations} url={'cases/'}/>
-
+                    <MapUI locations={locations} url={'cases/'} />
                     <div className={`${styles.blockCases}`}>
                         {cases.map((item, index) => (
                             <div className={`${styles.cese}`}>
-
                                 <Link to={`/cases/${item.id}`} className={`${styles.link} font-text-b customHover`}>
                                     {item.name}
                                 </Link>
@@ -89,8 +79,6 @@ export default function CityInfo(props) {
                         </div>
                     </div>
                 </div>
-
-                {/*</div>*/}
             </div>
             <Footer/>
         </div>
