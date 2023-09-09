@@ -1,6 +1,6 @@
-import {DOMAIN_NAME} from "./settings";
+import {DOMAIN_NAME, PROTOCOL} from "./settings";
 
-const PROTOCOL = 'http://';
+
 
 export const DEFAULT_HEADERS = {
     // 'Content-Type': 'application/json',
