@@ -26,6 +26,19 @@
     padding-left: 24px;
 }
 
+/*.blockText::-webkit-scrollbar {*/
+/*    width: 8px; !* Ширина скролла *!*/
+/*    background-color: var(--white-color); !* Цвет фона скролла *!*/
+/*    border-radius: 4px; !* Скругление краев *!*/
+/*}*/
+
+/*!* Для бара прокрутки *!*/
+/*.blockText::-webkit-scrollbar-thumb {*/
+/*    background-color: var(--black-color); !* Цвет бара прокрутки *!*/
+/*    border-radius: 4px; !* Скругление краев бара прокрутки *!*/
+/*}*/
+
+
 .blockDescription {
     height: 850px;
 }

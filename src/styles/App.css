@@ -35,6 +35,19 @@ body {
     padding: 0;
 }
 
+::-webkit-scrollbar {
+    width: 8px; /* Ширина скролла */
+    background-color: transparent; /* Цвет фона скролла */
+    border-radius: 8px; /* Скругление краев бара прокрутки */
+}
+
+/* Для бара прокрутки */
+::-webkit-scrollbar-thumb {
+    background-color: var(--black-color); /* Цвет бара прокрутки */
+    border-radius: 8px; /* Скругление краев бара прокрутки */
+}
+
+
 .App {
     min-height: 100vh;
     position: relative;
@@ -97,6 +110,7 @@ body {
 .h-100 {
     min-height: 100%;
 }
+
 
 @media (max-width: 850px) {
     .content-body {
