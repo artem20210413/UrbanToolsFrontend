@@ -28,8 +28,10 @@ export default function Contact() {
                                 <p className={'font-title-b'}>Contact and information<span
                                     className={`accent`}>:</span>
                                 </p>
-                                <p className={`font-text-b`}>Dr. Haris Piplas,</p>
-                                <p className={`font-text accent`}>haris.piplas@dreeso.com</p>
+                                <p className={`font-text-b`}>Dr. Haris Piplas</p>
+                                <p className={`font-text accent`}>haris.piplas@dreso.com</p>
+                                <p className={`font-text-b`}>Michael Beckert</p>
+                                <p className={`font-text accent`}>michael.beckert@dreso.com</p>
                             </div>
                         </div>
                     </div>
