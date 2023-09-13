@@ -26,29 +26,26 @@ export default function FormScale() {
     // console.log('ID кейса из URL:', id);
     useEffect(() => {
         setLoading(true);
-        getScaleById(id)
+        getScaleById()
 
     }, []);
 
     async function getScaleById() {
-        if (!id) {
-            return;
-        }
         try {
             const response = await axios.get(`${SEARCH_SCALE_BY_ID}${id}`);
             // console.log('API SEARCH_CITY_BY_ID response:', response.data);
             const locScale = response.data.data;
-
             setFormData({
                 id: locScale.id,
                 name: locScale.name,
                 description: locScale.description,
             });
-            setLoading(false);
 
         } catch (error) {
             console.error('API SEARCH_SCALE_BY_ID error:', error);
         }
+
+        setLoading(false);
     }
 
     const handleChange = (e) => {
@@ -107,53 +104,53 @@ export default function FormScale() {
             <div>
                 <div className="container">
                     <h1 className="mt-5">Form scale</h1>
-                    {loading && id ? (
-                    <div className="d-flex justify-content-center align-items-center" style={{height: '200px'}}>
-                        <div className="spinner-border text-primary" role="status">
-                            <span className="visually-hidden">Loading...</span>
-                        </div>
-                    </div>
-                ) : (
-                    <form onSubmit={handleSubmit} className="mt-3">
-                        {successMessage && (
-                            <div className="alert alert-success" role="alert">
-                                {successMessage}
+                    {loading ? (
+                        <div className="d-flex justify-content-center align-items-center" style={{height: '200px'}}>
+                            <div className="spinner-border text-primary" role="status">
+                                <span className="visually-hidden">Loading...</span>
                             </div>
-                        )}
-                        {errorMessage && (
-                            <div className="alert alert-danger" role="alert">
-                                {errorMessage}
-                            </div>
-                        )}
-                        <div className="mb-3">
-                            <label htmlFor="name" className="form-label">Name:</label>
-                            <input
-                                type="text"
-                                className="form-control"
-                                id="name"
-                                name="name"
-                                value={formData.name}
-                                onChange={handleChange}
-                                required
-                            />
                         </div>
+                    ) : (
+                        <form onSubmit={handleSubmit} className="mt-3">
+                            {successMessage && (
+                                <div className="alert alert-success" role="alert">
+                                    {successMessage}
+                                </div>
+                            )}
+                            {errorMessage && (
+                                <div className="alert alert-danger" role="alert">
+                                    {errorMessage}
+                                </div>
+                            )}
+                            <div className="mb-3">
+                                <label htmlFor="name" className="form-label">Name:</label>
+                                <input
+                                    type="text"
+                                    className="form-control"
+                                    id="name"
+                                    name="name"
+                                    value={formData.name}
+                                    onChange={handleChange}
+                                    required
+                                />
+                            </div>
 
-                        <div className="mb-3">
-                            <label htmlFor="description" className="form-label">Description:</label>
-                            <textarea
-                                style={{height: '200px'}}
-                                className="form-control"
-                                id="description"
-                                name="description"
-                                value={formData.description}
-                                onChange={handleChange}
-                            />
-                        </div>
-                        <div className="mb-3 text-center">
-                            <button type="submit" className="w-25 btn btn-primary">Send</button>
-                        </div>
-                    </form>
-                )}
+                            <div className="mb-3">
+                                <label htmlFor="description" className="form-label">Description:</label>
+                                <textarea
+                                    style={{height: '200px'}}
+                                    className="form-control"
+                                    id="description"
+                                    name="description"
+                                    value={formData.description}
+                                    onChange={handleChange}
+                                />
+                            </div>
+                            <div className="mb-3 text-center">
+                                <button type="submit" className="w-25 btn btn-primary">Send</button>
+                            </div>
+                        </form>
+                    )}
                 </div>
             </div>
         </div>

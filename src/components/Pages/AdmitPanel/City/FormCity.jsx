@@ -31,16 +31,13 @@ export default function FormCity() {
     // console.log('ID кейса из URL:', id);
     useEffect(() => {
         setLoading(true);
-        getCityById(id)
+        getCityById()
 
     }, []);
 
-    async function getCityById(cityId) {
-        if (!cityId) {
-            return;
-        }
+    async function getCityById() {
         try {
-            const response = await axios.get(`${SEARCH_CITY_BY_ID}${cityId}`);
+            const response = await axios.get(`${SEARCH_CITY_BY_ID}${id}`);
             const locCity = response.data.data;
 
             setFormData({
@@ -52,11 +49,11 @@ export default function FormCity() {
                 longitude: locCity.longitude,
                 latitude_longitude: `${locCity.latitude}, ${locCity.longitude}`,
             });
-            setLoading(false);
-
         } catch (error) {
             console.error('API SEARCH_CITY_BY_ID error:', error);
         }
+
+        setLoading(false);
     }
 
     const handleChange = (e) => {
@@ -117,7 +114,7 @@ export default function FormCity() {
             <AdminHeader/>
             <div>
                 <div className="container">
-                    <h1 className="mt-5">Form city</h1>{loading && id ? (
+                    <h1 className="mt-5">Form city</h1>{loading ? (
                     <div className="d-flex justify-content-center align-items-center" style={{height: '200px'}}>
                         <div className="spinner-border text-primary" role="status">
                             <span className="visually-hidden">Loading...</span>

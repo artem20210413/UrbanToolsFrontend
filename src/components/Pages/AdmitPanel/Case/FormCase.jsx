@@ -16,7 +16,7 @@ import {useParams} from "react-router-dom";
 export default function FormCase() {
 
     const {id} = useParams();
-    console.log('ID кейса из URL:', id);
+    // console.log('ID кейса из URL:', id);
 
     const [loading, setLoading] = useState(true);
     const [scales, setScales] = useState([]);
@@ -69,7 +69,7 @@ export default function FormCase() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         setLoading(true);
-        console.log('Submitted form:', formData);
+        // console.log('Submitted form:', formData);
         try {
             const token = getItemWithExpiry('token');
             const headers = DEFAULT_HEADERS_AND_BEARER_TOKEN(token);
@@ -112,7 +112,7 @@ export default function FormCase() {
     async function getCities() {
         try {
             const response = await axios.get(`${GET_CITIES}`);
-            console.log('API get scales response:', response.data);
+            // console.log('API get scales response:', response.data);
             setCities(response.data.data);
         } catch (error) {
             console.error('API get scales error:', error);
@@ -122,7 +122,7 @@ export default function FormCase() {
     async function getScales() {
         try {
             const response = await axios.get(`${GET_SCALES}`);
-            console.log('API get scales response:', response.data);
+            // console.log('API get scales response:', response.data);
             setScales(response.data.data);
         } catch (error) {
             console.error('API get scales error:', error);
@@ -133,7 +133,7 @@ export default function FormCase() {
         try {
 
             const response = await axios.get(`${SEARCH_CASE_BY_ID}${id}`);
-            console.log('API SEARCH_CASE_BY_ID response:', response.data);
+            // console.log('API SEARCH_CASE_BY_ID response:', response.data);
             const locCase = response.data.data;
             console.log(locCase);
 
@@ -148,10 +148,11 @@ export default function FormCase() {
                 longitude: locCase.longitude,
                 latitude_longitude: `${locCase.latitude}, ${locCase.longitude}`,
             })
-            setLoading(false);
+            // setLoading(false);
         } catch (error) {
             console.error('API get scales error:', error);
         }
+        setLoading(false);
     }
 
     return (
@@ -160,7 +161,7 @@ export default function FormCase() {
             <div>
                 <div className="container">
                     <h1 className="mt-5">Form case</h1>
-                    {loading && id ? (
+                    {loading ? (
                     <div className="d-flex justify-content-center align-items-center" style={{height: '200px'}}>
                         <div className="spinner-border text-primary" role="status">
                             <span className="visually-hidden">Loading...</span>
