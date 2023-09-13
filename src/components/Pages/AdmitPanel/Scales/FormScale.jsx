@@ -61,6 +61,7 @@ export default function FormScale() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        setLoading(true);
         console.log('Submitted form:', formData);
         try {
             const token = getItemWithExpiry('token');
@@ -97,6 +98,7 @@ export default function FormScale() {
                 // alert('An error occurred');
             }
         }
+        setLoading(false);
     };
 
     return (

@@ -68,8 +68,8 @@ export default function FormCase() {
     };
     const handleSubmit = async (e) => {
         e.preventDefault();
+        setLoading(true);
         console.log('Submitted form:', formData);
-
         try {
             const token = getItemWithExpiry('token');
             const headers = DEFAULT_HEADERS_AND_BEARER_TOKEN(token);
@@ -105,6 +105,7 @@ export default function FormCase() {
                 setSuccessMessage('');
             }
         }
+        setLoading(false);
     };
 
 

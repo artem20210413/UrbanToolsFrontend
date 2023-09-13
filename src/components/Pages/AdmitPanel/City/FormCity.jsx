@@ -77,6 +77,7 @@ export default function FormCity() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        setLoading(true);
         console.log('Submitted form:', formData);
         try {
             const token = getItemWithExpiry('token');
@@ -108,6 +109,7 @@ export default function FormCity() {
                 setSuccessMessage('');
             }
         }
+        setLoading(false);
     };
 
     return (
