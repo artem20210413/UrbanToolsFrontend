@@ -59,13 +59,13 @@ export default function MapUI({locations, url = null, img = null}) {
     function getMarkerImg(location) {
         const imgSizes = {
             0: {url: defaultMarkerImg, scaledSize: {width: 30, height: 30}},
-            1: {url: Scale1Img, scaledSize: {width: 45, height: 45}},
-            2: {url: Scale2Img, scaledSize: {width: 45, height: 45}},
-            3: {url: Scale3Img, scaledSize: {width: 45, height: 45}},
+            1: {url: Scale1Img, scaledSize: {width: 30, height: 30}},
+            2: {url: Scale2Img, scaledSize: {width: 30, height: 30}},
+            3: {url: Scale3Img, scaledSize: {width: 30, height: 30}},
         };
 
-        // return imgSizes[location.scaleId] || imgSizes[0];
-        return imgSizes[0];
+        return imgSizes[location.scaleId] || imgSizes[0];
+        // return imgSizes[0];
     }
 
 
